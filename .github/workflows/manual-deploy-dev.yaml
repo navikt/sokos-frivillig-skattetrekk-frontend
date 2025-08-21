@@ -12,10 +12,11 @@ permissions:
 jobs:
   build:
     name: Build/test & push image
-    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image-v2.yaml@main
     secrets: inherit
     with:
       image-tag: snapshot
+      build-command: "npm run build:development"
 
   deploy-dev:
     needs: build

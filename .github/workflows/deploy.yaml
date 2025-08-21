@@ -26,25 +26,38 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-q2:
     name: Build/test & push image
-    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image-v2.yaml@main
     secrets: inherit
+    with:
+      build-command: "npm run build:development"
+      image-suffix: "development"
+      image-tag: dev
 
   deploy-q2:
-    needs: build
+    needs: build-q2
     name: Deploy to dev-gcp-q2
     uses: navikt/mob-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
     with:
       cluster: dev-gcp
       resource: .nais/naiserator-q2.yaml
-      image: ${{ needs.build.outputs.image }}
+      image: ${{ needs.build-q2.outputs.image }}
 
+  build-production:
+    needs: deploy-q2
+    name: Build/test & push image
+    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image-v2.yaml@main
+    secrets: inherit
+    with:
+      build-command: "npm run build:production"
+      image-suffix: "production"
+      image-tag: production
   deploy-prod:
-    needs: [build, deploy-q2]
+    needs: [build-production]
     name: Deploy to prod-gcp
     uses: navikt/mob-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
     with:
       cluster: prod-gcp
       resource: .nais/naiserator-prod.yaml
-      image: ${{ needs.build.outputs.image }}
+      image: ${{ needs.build-production.outputs.image }}

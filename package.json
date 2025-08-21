@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "concurrently --kill-others-on-fail  \"vite --port 8080 \" \"node mock/server.cjs\"",
     "dev:backend": "vite --port 3000",
-    "build": "tsc && vite build --mode production",
     "build:development": "tsc && vite build --mode development",
+    "build:production": "tsc && vite build --mode production",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

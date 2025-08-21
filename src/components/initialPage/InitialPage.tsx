@@ -63,7 +63,7 @@ export function InitialPage() {
             Fullmektige kan dessverre ikke bruke denne tjenesten
           </Heading>
           <BodyLong spacing>
-            <Link href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
+            <Link href={getEnvironmentData().VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
               Her finner du informasjon om hvordan du kan registrere frivillig
               skattetrekk på vegne av andre.
             </Link>

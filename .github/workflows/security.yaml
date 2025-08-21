@@ -18,3 +18,4 @@ jobs:
     secrets: inherit
     with:
       language: "javascript"
+      image-suffix: "production"
