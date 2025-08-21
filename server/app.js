@@ -16,8 +16,8 @@ let client = await tokenx.client();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const buildPath = path.join(__dirname, "../dist");
-app.use(`${basePath}/assets`, express.static(`${buildPath}/assets`));
+const buildPath = path.resolve(__dirname, "../dist");
+app.use(basePath, express.static(buildPath, { index: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -82,20 +82,20 @@ async function getTokenValue(idToken) {
   );
 }
 
-app.get("/internal/health/liveness", (req, res) => {
-  res.send({
-    status: "UP",
-  });
+app.get(`${basePath}/internal/isAlive`, (_req, res) => {
+  res.sendStatus(200);
 });
 
-app.get("/internal/health/readiness", (req, res) => {
-  res.send({
-    status: "UP",
-  });
+app.get(`${basePath}/internal/isReady`, (_req, res) => {
+  res.sendStatus(200);
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
-});
+server.use(
+  basePath,
+  expressStaticGzip(buildPath, {
+    enableBrotli: true,
+    orderPreference: ["br"],
+  })
+);
 
 app.listen(PORT, () => console.log("Server started"));

@@ -18,13 +18,13 @@ spec:
     min: 1
     max: 2
   liveness:
-    path: /internal/health/liveness
+    path: /utbetaling/skattetrekk/internal/isAlive
     initialDelay: 20
     periodSeconds: 20
     failureThreshold: 5
     timeout: 1
   readiness:
-    path: /internal/health/readiness
+    path: /utbetaling/skattetrekk/internal/isReady
     initialDelay: 20
     periodSeconds: 20
     failureThreshold: 5
