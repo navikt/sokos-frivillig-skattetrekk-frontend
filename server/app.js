@@ -94,7 +94,7 @@ app.get("/internal/health/readiness", (req, res) => {
   });
 });
 
-app.get([basePath, `${basePath}/(.*)`], (req, res) => {
+app.get([basePath, `${basePath}/:path(*)?`], (req, res) => {
   res.sendFile(path.resolve(__dirname, "../dist", "index.html"));
 });
 
