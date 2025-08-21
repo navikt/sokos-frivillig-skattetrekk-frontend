@@ -10,4 +10,6 @@ COPY node_modules/ node_modules/
 COPY server server/
 COPY dist/ dist/
 
-ENTRYPOINT ["/nodejs/bin/node", "./server/app.js"]
+WORKDIR /usr/src/app/server
+
+CMD ["app.js"]

@@ -91,7 +91,7 @@ app.get(`${basePath}/internal/isReady`, (_req, res) => {
   res.sendStatus(200);
 });
 
-server.use(
+app.use(
   basePath,
   expressStaticGzip(buildPath, {
     enableBrotli: true,
