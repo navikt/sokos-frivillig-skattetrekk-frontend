@@ -52,7 +52,7 @@ jobs:
     with:
       build-command: "npm run build:production"
       image-suffix: "production"
-      image-tag: production
+
   deploy-prod:
     needs: [build-production]
     name: Deploy to prod-gcp
