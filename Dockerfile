@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 USER nonroot
 
 COPY package.json .
-COPY pnpm-lock.json .
+COPY pnpm-lock.yaml .
 COPY node_modules/ node_modules/
 COPY server server/
 COPY dist/ dist/
