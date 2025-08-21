@@ -31,17 +31,17 @@ jobs:
     uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
     secrets: inherit
 
-  deploy-dev:
+  deploy-q2:
     needs: build
-    name: Deploy to dev-gcp
+    name: Deploy to dev-gcp-q2
     uses: navikt/mob-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
     with:
       cluster: dev-gcp
-      resource: .nais/naiserator-dev.yaml
+      resource: .nais/naiserator-q2.yaml
       image: ${{ needs.build.outputs.image }}
 
   deploy-prod:
-    needs: [build, deploy-dev]
+    needs: [build, deploy-q2]
     name: Deploy to prod-gcp
     uses: navikt/mob-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
     with:
