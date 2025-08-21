@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import expressStaticGzip from "express-static-gzip";
 import path from "path";
 import { fileURLToPath } from "url";
 import tokenx from "./tokenx.js";
