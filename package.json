@@ -1,0 +1,53 @@
+{
+  "name": "sokos-frivillig-skattetrekk-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server/app.js",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail  \"vite --port 8080 \" \"node mock/server.cjs\"",
+    "dev:backend": "vite --port 3000",
+    "build": "tsc && vite build --mode production",
+    "build:development": "tsc && vite build --mode development",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "node-jose": "^2.2.0",
+    "openid-client": "5.7.0",
+    "react-router-dom": "^7.8.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@navikt/aksel-icons": "^7.28.1",
+    "@navikt/ds-css": "^7.28.1",
+    "@navikt/ds-react": "^7.28.1",
+    "@navikt/ds-tokens": "^7.28.1",
+    "@navikt/nav-dekoratoren-moduler": "^3.2.2",
+    "@types/express": "^5.0.1",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react": "^7.37.5",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "stylelint-config-standard": "^39.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2",
+    "vite-plugin-eslint2": "^5.0.4",
+    "vite-plugin-stylelint": "^6.0.2",
+    "vitest": "^3.2.4"
+  }
+}
