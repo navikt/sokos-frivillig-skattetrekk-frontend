@@ -16,8 +16,8 @@ let client = await tokenx.client();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const buildPath = path.resolve(__dirname, "../dist");
-app.use(basePath, express.static(buildPath));
+const buildPath = path.join(__dirname, "../dist");
+app.use(`${basePath}/assets`, express.static(`${buildPath}/assets`));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -94,8 +94,8 @@ app.get("/internal/health/readiness", (req, res) => {
   });
 });
 
-app.get(`${basePath}/*`, (req, res) => {
-  res.sendFile(path.join(buildPath, "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 app.listen(PORT, () => console.log("Server started"));
