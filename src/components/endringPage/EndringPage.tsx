@@ -191,7 +191,7 @@ export const EndringPage = () => {
 
       <VStack gap={"6"}>
         <Heading level="2" size="medium">
-          Dette registrerer du frivillig skattetrekk på her:
+          Disse pengestøttene kan du registrere frivillig skattetrekk på:
         </Heading>
         <article>
           <List>

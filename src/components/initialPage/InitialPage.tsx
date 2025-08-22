@@ -193,7 +193,7 @@ export function InitialPage() {
             </Accordion.Item>
             <Accordion.Item>
               <Accordion.Header>
-                Dette registrerer du frivillig skattetrekk på her
+                Disse pengestøttene kan du registrere frivillig skattetrekk på:
               </Accordion.Header>
               <Accordion.Content>
                 <VStack gap="4">
