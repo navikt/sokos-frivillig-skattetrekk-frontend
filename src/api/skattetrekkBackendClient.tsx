@@ -80,7 +80,22 @@ export async function fetchSkattetrekk(): Promise<FrivilligSkattetrekkResponse> 
         return data.feilkode;
       });
     } else {
-      throw new Error("Fikk ikke 2xx respons fra server");
+      return {
+        data: {
+          tilleggstrekk: null,
+          fremtidigTilleggstrekk: null,
+          skattetrekk: null,
+          maxBelop: 0,
+          maxProsent: 0
+        },
+        messages: [
+            {
+                details: "Ukjent feil ved henting av skattetrekk",
+                type: MessageType.ERROR,
+                code: MessageCode.OPPDRAG_UTILGJENGELIG,
+            },
+        ]
+      } as FrivilligSkattetrekkResponse
     }
   });
 }
