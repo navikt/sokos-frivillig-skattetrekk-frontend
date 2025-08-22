@@ -48,16 +48,7 @@ export interface UpdateTilleggstrekkRequest {
   satsType: SatsType;
 }
 
-const isMock = process.env.isMock || false;
-const PORT = process.env.MOCK_PORT || "8080";
-const BASE_URL = isMock
-  ? "http://" +
-    window.location.hostname +
-    ":" +
-    PORT +
-    import.meta.env.BASE_URL +
-    "/"
-  : import.meta.env.BASE_URL + "/";
+const BASE_URL = "/utbetaling/skattetrekk/";
 
 export async function fetchSkattetrekk(): Promise<FrivilligSkattetrekkResponse> {
   const searchParams = new URLSearchParams(document.location.search);
