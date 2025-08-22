@@ -4,7 +4,7 @@
   "type": "module",
   "main": "src/server/app.js",
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail  \"vite --port 8080 \" \"node mock/server.cjs\"",
+    "dev": "vite --mode mock",
     "dev:backend": "vite --port 3000",
     "build:development": "tsc && vite build --mode development",
     "build:production": "tsc && vite build --mode production",
@@ -40,6 +40,7 @@
     "concurrently": "^9.2.0",
     "eslint": "^9.33.0",
     "eslint-plugin-react": "^7.37.5",
+    "msw": "^2.10.5",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "stylelint-config-standard": "^39.0.0",
@@ -50,5 +51,10 @@
     "vite-plugin-eslint2": "^5.0.4",
     "vite-plugin-stylelint": "^6.0.2",
     "vitest": "^3.2.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
