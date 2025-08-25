@@ -156,13 +156,12 @@ export const EndringPage = () => {
             Barnepensjon
           </Heading>
           <BodyLong>
-            Frivillig skatterekk på barnepensjon kan dessverre ikke registreres
+            Frivillig skattetrekk på barnepensjon kan dessverre ikke registreres
             i denne tjenesten.
-            <Link href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
-              Her finner du informasjon om frivillig skattetrekk og
-              barnepensjon.
-            </Link>
           </BodyLong>
+          <Link href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
+            Her finner du informasjon om frivillig skattetrekk og barnepensjon.
+          </Link>
         </VStack>
 
         <HStack gap="2">
@@ -191,7 +190,7 @@ export const EndringPage = () => {
 
       <VStack gap={"6"}>
         <Heading level="2" size="medium">
-          Disse pengestøttene kan du registrere frivillig skattetrekk på:
+          Dette registrerer du frivillig skattetrekk på her:
         </Heading>
         <article>
           <List>
