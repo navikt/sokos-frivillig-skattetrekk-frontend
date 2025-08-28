@@ -160,7 +160,7 @@ export const EndringPage = () => {
             i denne tjenesten.
           </BodyLong>
           <Link href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
-            Her finner du informasjon om frivillig skattetrekk og barnepensjon.
+            Frivillig skattetrekk i barnepensjon.
           </Link>
         </VStack>
 

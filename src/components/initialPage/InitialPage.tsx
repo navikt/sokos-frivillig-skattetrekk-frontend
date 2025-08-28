@@ -234,8 +234,7 @@ export function InitialPage() {
                     <Link
                       href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}
                     >
-                      Les om hvordan registrere frivillig skattetrekk på
-                      barnepensjon.{" "}
+                      Frivillig skattetrekk i barnepensjon.{" "}
                     </Link>
                   </BodyLong>
                 </VStack>
