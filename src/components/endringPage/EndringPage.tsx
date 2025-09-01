@@ -155,13 +155,15 @@ export const EndringPage = () => {
           <Heading level="3" size="small">
             Barnepensjon
           </Heading>
-          <BodyLong>
-            Frivillig skattetrekk på barnepensjon kan dessverre ikke registreres
-            i denne tjenesten.
-          </BodyLong>
-          <Link href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
-            Frivillig skattetrekk i barnepensjon.
-          </Link>
+          <VStack gap="4">
+            <BodyLong>
+              Frivillig skattetrekk på barnepensjon kan dessverre ikke
+              registreres i denne tjenesten.
+            </BodyLong>
+            <Link href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}>
+              Frivillig skattetrekk i barnepensjon.
+            </Link>
+          </VStack>
         </VStack>
 
         <HStack gap="2">

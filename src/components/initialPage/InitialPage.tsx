@@ -224,19 +224,21 @@ export function InitialPage() {
                     kulepunktlisten over.
                   </BodyLong>
                   <BodyLong>
-                    {" "}
                     Noen pengestøtter kan ikke gis frivillig skattetrekk fordi
                     de er skattefrie.
                   </BodyLong>
                   <BodyLong>
                     Barnepensjon kan få frivillig skattetrekk, men det kan
-                    dessverre ikke registreres i denne tjenesten.{" "}
-                    <Link
-                      href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}
-                    >
-                      Frivillig skattetrekk i barnepensjon.{" "}
-                    </Link>
+                    dessverre ikke registreres i denne tjenesten.
                   </BodyLong>
+                  <Link
+                    href={
+                      import.meta.env
+                        .VITE_FRIVILLIG_SKATTETREKK_BARNEPENSJON_DIGITALSKJEMA_URL
+                    }
+                  >
+                    Frivillig skattetrekk i barnepensjon.
+                  </Link>
                 </VStack>
               </Accordion.Content>
             </Accordion.Item>
