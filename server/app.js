@@ -25,9 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get(basePath + "/api/skattetrekk", async (req, res) => {
-  console.log("Henter token for skattetrekk");
   const newHeaders = await updateHeaders(req.headers);
-  console.log("kaller skattetrekk backend");
   const response = await fetch(
     process.env.SKATTETREKK_BACKEND_URL + "/api/skattetrekk",
     {
