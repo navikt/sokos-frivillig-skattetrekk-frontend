@@ -1,8 +1,7 @@
-FROM gcr.io/distroless/nodejs22-debian12
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:22
 ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
-USER nonroot
 
 COPY package.json .
 COPY pnpm-lock.yaml .
