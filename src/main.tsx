@@ -24,7 +24,7 @@ startMsw().then(() =>
       <div className="microfrontend-container">
         <representasjon-banner
           representasjonstyper=""
-          redirectTo={`${window.location.origin}/utbetaling/skattetrekk/`}
+          redirectTo={`${window.location.origin}/utbetaling/frivillig-skattetrekk/`}
         ></representasjon-banner>
       </div>
       <App />

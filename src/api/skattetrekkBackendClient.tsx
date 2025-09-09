@@ -48,7 +48,7 @@ export interface UpdateTilleggstrekkRequest {
   satsType: SatsType;
 }
 
-const BASE_URL = "/utbetaling/skattetrekk/";
+const BASE_URL = "/utbetaling/frivillig-skattetrekk/";
 
 export async function fetchSkattetrekk(): Promise<FrivilligSkattetrekkResponse> {
   const searchParams = new URLSearchParams(document.location.search);

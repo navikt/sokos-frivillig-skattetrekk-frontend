@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import tokenx from "./tokenx.js";
 
-const basePath = "/utbetaling/skattetrekk";
+const basePath = "/utbetaling/frivillig-skattetrekk";
 
 const app = express();
 
