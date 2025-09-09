@@ -1,0 +1,7 @@
+name: skattetrekk-legacy-redirect-ingress-q2
+namespace: okonomi
+annotations:
+  nginx.ingress.kubernetes.io/permanent-redirect: "https://sokos-frivillig-skattetrekk-frontend-q2.ansatt.dev.nav.no"
+labels:
+  app: skattetrekk-legacy-redirect-ingress-q2
+  team: team-motta-og-beregne

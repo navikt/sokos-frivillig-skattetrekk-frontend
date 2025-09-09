@@ -13,6 +13,7 @@ spec:
   port: 8080
   ingresses:
     - https://www.nav.no/utbetaling/frivillig-skattetrekk
+    - https://www.nav.no/utbetaling/skattetrekk
   replicas:
     min: 1
     max: 2
