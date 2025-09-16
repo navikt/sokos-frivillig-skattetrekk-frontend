@@ -1,0 +1,7 @@
+name: skattetrekk-legacy-redirect-ingress-prod
+namespace: okonomi
+annotations:
+  nginx.ingress.kubernetes.io/permanent-redirect: "https://www.nav.no/utbetaling/frivillig-skattetrekk"
+labels:
+  app: skattetrekk-legacy-redirect-ingress-prod
+  team: team-mob
