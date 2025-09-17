@@ -8,3 +8,5 @@ metadata:
   labels:
     app: skattetrekk-legacy-redirect-ingress-q2
     team: okonomi
+spec:
+  ingressClassName: nais-ingress-external
