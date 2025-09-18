@@ -24,7 +24,7 @@ app.use(basePath, express.static(buildPath, { index: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/utbetaling/skattetrekk*", (req, res) => {
+app.get(/^\/utbetaling\/skattetrekk(.*)$/, (req, res) => {
   const newPath = req.originalUrl.replace(
     "/utbetaling/skattetrekk",
     "/utbetaling/frivillig-skattetrekk"
