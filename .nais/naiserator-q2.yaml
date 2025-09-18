@@ -14,6 +14,8 @@ spec:
   ingresses:
     - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/skattetrekk
     - https://sokos-frivillig-skattetrekk-frontend-q2.ansatt.dev.nav.no/utbetaling/skattetrekk
+    - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/frivillig-skattetrekk
+    - https://sokos-frivillig-skattetrekk-frontend-q2.ansatt.dev.nav.no/utbetaling/frivillig-skattetrekk
   replicas:
     min: 1
     max: 2
