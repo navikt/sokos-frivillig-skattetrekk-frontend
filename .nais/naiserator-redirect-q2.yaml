@@ -4,7 +4,7 @@ metadata:
   name: skattetrekk-legacy-redirect-ingress-q2
   namespace: okonomi
   annotations:
-    nginx.ingress.kubernetes.io/permanent-redirect: "https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/frivillig-skattetrekk"
+    nginx.ingress.kubernetes.io/permanent-redirect: https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/frivillig-skattetrekk
   labels:
     app: skattetrekk-legacy-redirect-ingress-q2
     team: okonomi
@@ -20,4 +20,4 @@ spec:
               service:
                 name: sokos-frivillig-skattetrekk-frontend-q2
                 port:
-                  number: 80
+                  number: 8080
