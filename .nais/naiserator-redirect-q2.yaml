@@ -18,6 +18,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: sokos-frivillig-skattetrekk-backend-q2
+                name: sokos-frivillig-skattetrekk-frontend-q2
                 port:
                   number: 80
