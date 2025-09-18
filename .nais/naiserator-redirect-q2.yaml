@@ -11,7 +11,8 @@ metadata:
 spec:
   ingressClassName: nais-ingress-external
   rules:
-    - http:
+    - host: sokos-frivillig-skattetrekk-frontend-q2.ansatt.dev.nav.no
+      http:
         paths:
           - path: /utbetaling/skattetrekk
             pathType: Prefix
