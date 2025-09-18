@@ -24,6 +24,14 @@ app.use(basePath, express.static(buildPath, { index: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/utbetaling/skattetrekk*", (req, res) => {
+  const newPath = req.originalUrl.replace(
+    "/utbetaling/skattetrekk",
+    "/utbetaling/frivillig-skattetrekk"
+  );
+  res.redirect(301, newPath);
+});
+
 app.get(basePath + "/api/skattetrekk", async (req, res) => {
   const newHeaders = await updateHeaders(req.headers);
   const response = await fetch(
