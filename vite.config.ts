@@ -4,7 +4,7 @@ import { UserConfig, defineConfig } from "vite";
 import eslint from 'vite-plugin-eslint2';
 import stylelint from 'vite-plugin-stylelint';
 
-const basePath = "/utbetaling/frivillig-skattetrekk";
+const basePath = "/utbetalinger/frivillig-skattetrekk";
 
 // https://vitejs.dev/config/
 const buildConfig: UserConfig = {

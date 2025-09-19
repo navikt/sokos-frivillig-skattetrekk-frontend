@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import tokenx from "./tokenx.js";
 
-const basePath = "/utbetaling/frivillig-skattetrekk";
+const basePath = "/utbetalinger/frivillig-skattetrekk";
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get(/^\/utbetaling\/skattetrekk(.*)$/, (req, res) => {
   const newPath = req.originalUrl.replace(
     "/utbetaling/skattetrekk",
-    "/utbetaling/frivillig-skattetrekk"
+    "/utbetalinger/frivillig-skattetrekk"
   );
   res.redirect(301, newPath);
 });
