@@ -4,11 +4,11 @@ import skattetrekkInitResponse from "./skattetrekkInitResponse.json";
 
 export const handlers = [
 
-  http.get("/utbetaling/skattetrekk/api/skattetrekk", () => {
+  http.get("/utbetaling/frivillig-skattetrekk/api/skattetrekk", () => {
     return HttpResponse.json(skattetrekkInitResponse, { status: 200 });
   }),
 
-  http.post("/utbetaling/skattetrekk/api/skattetrekk", async () => {
+  http.post("/utbetaling/frivillig-skattetrekk/api/skattetrekk", async () => {
     return new HttpResponse(null, { status: 200 });
   }),
 ];

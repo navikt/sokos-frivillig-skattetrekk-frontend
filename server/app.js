@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import tokenx from "./tokenx.js";
 
-const basePath = "/utbetaling/skattetrekk";
+const basePath = "/utbetaling/frivillig-skattetrekk";
 
 const app = express();
 
@@ -23,6 +23,14 @@ const buildPath = path.resolve(__dirname, "../dist");
 app.use(basePath, express.static(buildPath, { index: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get(/^\/utbetaling\/skattetrekk(.*)$/, (req, res) => {
+  const newPath = req.originalUrl.replace(
+    "/utbetaling/skattetrekk",
+    "/utbetaling/frivillig-skattetrekk"
+  );
+  res.redirect(301, newPath);
+});
 
 app.get(basePath + "/api/skattetrekk", async (req, res) => {
   const newHeaders = await updateHeaders(req.headers);

@@ -12,19 +12,19 @@ spec:
   image: "{{{ image }}}"
   port: 8080
   ingresses:
-    - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no
-    - https://sokos-frivillig-skattetrekk-frontend-q2.ansatt.dev.nav.no
+    - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/skattetrekk
+    - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/frivillig-skattetrekk
   replicas:
     min: 1
     max: 2
   liveness:
-    path: /utbetaling/skattetrekk/internal/isAlive
+    path: /utbetaling/frivillig-skattetrekk/internal/isAlive
     initialDelay: 20
     periodSeconds: 20
     failureThreshold: 5
     timeout: 1
   readiness:
-    path: /utbetaling/skattetrekk/internal/isReady
+    path: /utbetaling/frivillig-skattetrekk/internal/isReady
     initialDelay: 20
     periodSeconds: 20
     failureThreshold: 5
