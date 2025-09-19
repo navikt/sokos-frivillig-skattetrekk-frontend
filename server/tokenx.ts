@@ -1,17 +1,29 @@
 import jwt from "jsonwebtoken";
 import nodeJose from "node-jose";
-import { Issuer } from "openid-client";
+import { Client, Issuer, TokenSet, ClientAuthMethod } from "openid-client";
 import { v4 as uuid } from "uuid";
 import config from "./config.js";
 
-const client = async () => {
+const client = async (): Promise<Client> => {
   const tokenxConfig = config.tokenxConfig;
+
+  if (!tokenxConfig.discoveryUrl) {
+    throw new Error("TOKEN_X_WELL_KNOWN_URL is required");
+  }
+  if (!tokenxConfig.privateJwk) {
+    throw new Error("TOKEN_X_PRIVATE_JWK is required");
+  }
+  if (!tokenxConfig.clientID) {
+    throw new Error("TOKEN_X_CLIENT_ID is required");
+  }
+
   const issuer = await Issuer.discover(tokenxConfig.discoveryUrl);
   const jwk = JSON.parse(tokenxConfig.privateJwk);
   return new issuer.Client(
     {
       client_id: tokenxConfig.clientID,
-      token_endpoint_auth_method: tokenxConfig.tokenEndpointAuthMethod,
+      token_endpoint_auth_method:
+        tokenxConfig.tokenEndpointAuthMethod as ClientAuthMethod,
       token_endpoint_auth_signing_alg: tokenxConfig.tokenEndpointAuthSigningAlg,
     },
     { keys: [jwk] }
@@ -19,12 +31,17 @@ const client = async () => {
 };
 
 const getTokenExchangeAccessToken = async (
-  tokenxClient,
-  bearerToken,
-  backendAudience
-) => {
-  let backendTokenSet = undefined;
+  tokenxClient: Client,
+  bearerToken: string,
+  backendAudience: string
+): Promise<string> => {
+  let backendTokenSet: TokenSet | undefined = undefined;
   const now = Math.floor(Date.now() / 1000);
+
+  if (!config.tokenxConfig.endpoint) {
+    throw new Error("TOKEN_X_TOKEN_ENDPOINT is required");
+  }
+
   const additionalClaims = {
     clientAssertionPayload: {
       nbf: now,
@@ -46,11 +63,18 @@ const getTokenExchangeAccessToken = async (
     additionalClaims
   );
 
-  return backendTokenSet.access_token;
+  return backendTokenSet.access_token!;
 };
 
-const createClientAssertion = async (audience) => {
+const createClientAssertion = async (audience: string): Promise<string> => {
   const now = Math.floor(Date.now() / 1000);
+
+  if (!config.tokenxConfig.clientID) {
+    throw new Error("TOKEN_X_CLIENT_ID is required");
+  }
+  if (!config.tokenxConfig.privateJwk) {
+    throw new Error("TOKEN_X_PRIVATE_JWK is required");
+  }
 
   const payload = {
     sub: config.tokenxConfig.clientID,
@@ -64,7 +88,7 @@ const createClientAssertion = async (audience) => {
 
   const key = await asKey(config.tokenxConfig.privateJwk);
 
-  const options = {
+  const options: jwt.SignOptions = {
     algorithm: "RS256",
     header: {
       kid: key.kid,
@@ -76,13 +100,13 @@ const createClientAssertion = async (audience) => {
   return jwt.sign(payload, key.toPEM(true), options);
 };
 
-const asKey = async (jwk) => {
+const asKey = async (jwk: string): Promise<nodeJose.JWK.Key> => {
   if (!jwk) {
-    print("JWK Mangler");
+    console.log("JWK Mangler");
     throw Error("JWK Mangler");
   }
 
-  return nodeJose.JWK.asKey(jwk).then((key) => {
+  return nodeJose.JWK.asKey(jwk).then((key: nodeJose.JWK.Key) => {
     return Promise.resolve(key);
   });
 };
