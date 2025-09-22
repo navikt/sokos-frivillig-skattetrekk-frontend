@@ -4,17 +4,21 @@ import path from "path";
 import { getOboToken } from "./token";
 
 const basePath = "/utbetalinger/frivillig-skattetrekk";
-
-const app = express();
-
-const PORT = process.env.PORT || 8080;
-
 const buildPath = path.resolve(__dirname, "../dist");
-app.use(basePath, express.static(buildPath, { index: false }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+const server = express();
 
-app.get(/^\/utbetaling\/skattetrekk(.*)$/, (req: Request, res: Response) => {
+server.use(basePath, express.static(buildPath, { index: false }));
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(
+  basePath,
+  expressStaticGzip(buildPath, {
+    enableBrotli: true,
+    orderPreference: ["br"],
+  })
+);
+
+server.get(/^\/utbetaling\/skattetrekk(.*)$/, (req: Request, res: Response) => {
   const newPath = req.originalUrl.replace(
     "/utbetaling/skattetrekk",
     "/utbetalinger/frivillig-skattetrekk"
@@ -22,7 +26,7 @@ app.get(/^\/utbetaling\/skattetrekk(.*)$/, (req: Request, res: Response) => {
   res.redirect(301, newPath);
 });
 
-app.get(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
+server.get(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
   try {
     const oboToken = await getOboToken(req);
     const response = await fetch(
@@ -46,7 +50,7 @@ app.get(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
   }
 });
 
-app.post(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
+server.post(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
   try {
     const oboToken = await getOboToken(req);
     const response = await fetch(
@@ -72,20 +76,12 @@ app.post(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
   }
 });
 
-app.get(`${basePath}/internal/isAlive`, (_req: Request, res: Response) => {
+server.get(`${basePath}/internal/isAlive`, (_req: Request, res: Response) => {
   res.sendStatus(200);
 });
 
-app.get(`${basePath}/internal/isReady`, (_req: Request, res: Response) => {
+server.get(`${basePath}/internal/isReady`, (_req: Request, res: Response) => {
   res.sendStatus(200);
 });
 
-app.use(
-  basePath,
-  expressStaticGzip(buildPath, {
-    enableBrotli: true,
-    orderPreference: ["br"],
-  })
-);
-
-app.listen(PORT, () => console.log("Server started"));
+server.listen(8080, () => console.log("Server listening on port 8080"));

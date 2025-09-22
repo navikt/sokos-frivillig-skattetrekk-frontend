@@ -35,7 +35,7 @@ jobs:
       client-build-command: "pnpm run build:development"
       server-build-command: "cd server && pnpm run build"
       image-suffix: "development"
-      image-tag: dev
+      image-tag: "dev"
 
   build-production:
     needs: [ build-q2 ]
