@@ -1,7 +1,7 @@
-import App from "@/App";
 import "@navikt/ds-css";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import App from "./App";
 import "./App.css";
 
 const startMsw = async () => {

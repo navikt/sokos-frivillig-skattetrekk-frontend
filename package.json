@@ -1,8 +1,8 @@
 {
   "name": "sokos-frivillig-skattetrekk-frontend",
   "version": "1.0.0",
+  "description": "Frontend for frivillig skattetrekk for skattepliktige ytelser",
   "type": "module",
-  "main": "dist/server/app.js",
   "scripts": {
     "dev": "vite --mode mock",
     "dev:backend": "vite --port 3000",

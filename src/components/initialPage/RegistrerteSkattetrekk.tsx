@@ -1,6 +1,12 @@
-import { ForenkletSkattetrekk, TrekkDTO } from "@/api/skattetrekkBackendClient";
-import { showPercentageOrTable, visProsentEllerBelop } from "@/common/Utils";
 import { Alert, BodyLong, VStack } from "@navikt/ds-react";
+import {
+  ForenkletSkattetrekk,
+  TrekkDTO,
+} from "../../api/skattetrekkBackendClient";
+import {
+  showPercentageOrTable,
+  visProsentEllerBelop,
+} from "../../common/Utils";
 import "./RegistrerteSkattetrekk.css";
 
 type RegistrerteSkattetrekkProps = {

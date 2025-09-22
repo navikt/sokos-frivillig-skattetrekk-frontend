@@ -1,9 +1,9 @@
-import { routes } from "@/routes";
-import DataContextProvider from "@/state/DataContextProvider";
 import "@navikt/ds-css";
 import { Heading, VStack } from "@navikt/ds-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import { routes } from "./routes";
+import DataContextProvider from "./state/DataContextProvider";
 
 const browserRouter = createBrowserRouter(routes);
 

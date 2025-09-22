@@ -1,8 +1,3 @@
-import { SatsType } from "@/api/skattetrekkBackendClient";
-import { SetLocationState, useLocationState } from "@/common/useLocationState";
-import { numberFormatWithKr, parseInntekt } from "@/common/Utils";
-import { PageLinks } from "@/routes";
-import { DataContext } from "@/state/DataContextProvider";
 import {
   BodyLong,
   Button,
@@ -16,6 +11,14 @@ import {
   VStack,
 } from "@navikt/ds-react";
 import React, { useContext, useEffect, useState } from "react";
+import { SatsType } from "../../api/skattetrekkBackendClient";
+import {
+  SetLocationState,
+  useLocationState,
+} from "../../common/useLocationState";
+import { numberFormatWithKr, parseInntekt } from "../../common/Utils";
+import { PageLinks } from "../../routes";
+import { DataContext } from "../../state/DataContextProvider";
 import "./EndringPage.css";
 
 export const EndringPage = () => {

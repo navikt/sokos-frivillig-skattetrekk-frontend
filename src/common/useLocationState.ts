@@ -1,5 +1,5 @@
-import { SatsType } from "@/api/skattetrekkBackendClient";
-import { PageLinks } from "@/routes";
+import { SatsType } from "../api/skattetrekkBackendClient";
+import { PageLinks } from "../routes";
 import { useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 

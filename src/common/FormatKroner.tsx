@@ -1,4 +1,4 @@
-import { numberFormatWithKr } from "@/common/Utils";
+import { numberFormatWithKr } from "../common/Utils";
 import "./FormatKroner.css";
 
 export const FormatKroner = ({ value }: { value: number }) => {

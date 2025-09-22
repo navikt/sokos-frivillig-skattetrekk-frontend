@@ -1,9 +1,9 @@
+import { BodyShort, Box, Loader, VStack } from "@navikt/ds-react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 import {
   fetchSkattetrekk,
   FrivilligSkattetrekkResponse,
-} from "@/api/skattetrekkBackendClient";
-import { BodyShort, Box, Loader, VStack } from "@navikt/ds-react";
-import React, { createContext, useCallback, useEffect, useState } from "react";
+} from "../api/skattetrekkBackendClient";
 import "./DataContextProvider.css";
 
 interface DataContextValue {

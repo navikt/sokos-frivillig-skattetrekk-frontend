@@ -1,13 +1,4 @@
 import {
-  FrivilligSkattetrekkData,
-  MessageType,
-  SatsType,
-} from "@/api/skattetrekkBackendClient";
-import { useLocationState } from "@/common/useLocationState";
-import { numberFormatWithKr } from "@/common/Utils";
-import { PageLinks } from "@/routes";
-import { DataContext } from "@/state/DataContextProvider";
-import {
   Alert,
   BodyLong,
   Box,
@@ -17,6 +8,15 @@ import {
   VStack,
 } from "@navikt/ds-react";
 import { useContext, useEffect } from "react";
+import {
+  FrivilligSkattetrekkData,
+  MessageType,
+  SatsType,
+} from "../../api/skattetrekkBackendClient";
+import { useLocationState } from "../../common/useLocationState";
+import { numberFormatWithKr } from "../../common/Utils";
+import { PageLinks } from "../../routes";
+import { DataContext } from "../../state/DataContextProvider";
 import "./KvitteringPage.css";
 
 export const KvitteringPage = () => {

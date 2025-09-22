@@ -1,10 +1,10 @@
-import { EndringPage } from "@/components/endringPage/EndringPage";
-import { InitialPage } from "@/components/initialPage/InitialPage";
-import { KvitteringPage } from "@/components/kvittering/KvitteringPage";
-import { OppsummeringPage } from "@/components/oppsummeringPage/OppsummeringPage";
-import { ErrorMessage } from "@/components/pageStatus/ErrorMessage";
 import { useEffect } from "react";
 import { Outlet, RouteObject, useLocation } from "react-router-dom";
+import { EndringPage } from "./components/endringPage/EndringPage";
+import { InitialPage } from "./components/initialPage/InitialPage";
+import { KvitteringPage } from "./components/kvittering/KvitteringPage";
+import { OppsummeringPage } from "./components/oppsummeringPage/OppsummeringPage";
+import { ErrorMessage } from "./components/pageStatus/ErrorMessage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
