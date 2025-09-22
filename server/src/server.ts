@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import expressStaticGzip from "express-static-gzip";
 import path from "path";
-import { fileURLToPath } from "url";
 import { getOboToken } from "./token";
 
 const basePath = "/utbetalinger/frivillig-skattetrekk";
@@ -10,9 +9,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const buildPath = path.resolve(__dirname, "../");
+const buildPath = path.resolve(__dirname, "../dist");
 app.use(basePath, express.static(buildPath, { index: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

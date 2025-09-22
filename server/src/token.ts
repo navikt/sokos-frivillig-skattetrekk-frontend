@@ -1,6 +1,5 @@
 import { getToken, requestOboToken, validateToken } from '@navikt/oasis';
 import { Request } from "express";
-import { IncomingHttpHeaders } from 'http';
 
 async function getRequiredToken(req: Request): Promise<string> {
   return new Promise<string>(async (resolve, reject) => {

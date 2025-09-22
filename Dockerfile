@@ -3,12 +3,10 @@ ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
-COPY package.json .
-COPY pnpm-lock.yaml .
-COPY node_modules/ node_modules/
-COPY server server/
-COPY dist/ dist/
+COPY dist dist/
+COPY server/build server/
+COPY server/node_modules server/node_modules/
 
 WORKDIR /usr/src/app/server
 
-CMD ["app.js"]
+CMD ["server.js"]
