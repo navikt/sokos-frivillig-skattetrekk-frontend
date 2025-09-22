@@ -34,15 +34,12 @@ async function getRequiredToken(req: Request): Promise<string> {
 
 export async function getOboToken(
   req: Request
-): Promise<IncomingHttpHeaders> {
+): Promise<string> {
   if (!req.headers.authorization) {
     throw new Error("Authorization header is missing");
   }
 
   const oboToken = getRequiredToken(req);
 
-  let newHeaders = req.headers;
-  newHeaders["authorization"] = "Bearer " + oboToken;
-
-  return newHeaders;
+  return oboToken;
 }
