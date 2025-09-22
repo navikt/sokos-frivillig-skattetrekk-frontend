@@ -1,20 +1,14 @@
-import dotenv from "dotenv";
 import express, { Request, Response } from "express";
 import expressStaticGzip from "express-static-gzip";
 import path from "path";
 import { fileURLToPath } from "url";
-import { IncomingHttpHeaders } from "http";
-import tokenx from "./tokenx.js";
+import { getOboToken } from "./token";
 
 const basePath = "/utbetalinger/frivillig-skattetrekk";
 
 const app = express();
 
 const PORT = process.env.PORT || 8080;
-
-dotenv.config();
-
-const client = await tokenx.client();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,18 +27,18 @@ app.get(/^\/utbetaling\/skattetrekk(.*)$/, (req: Request, res: Response) => {
 
 app.get(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
   try {
-    const newHeaders = await updateHeaders(req.headers);
+    const oboToken = await getOboToken(req);
     const response = await fetch(
       process.env.SKATTETREKK_BACKEND_URL + "/api/skattetrekk",
       {
         method: req.method,
-        headers: newHeaders,
+        headers: {
+          'Authorization': 'Bearer ' + oboToken,
+          'Content-Type': 'application/json',
+        }
       }
     );
-
-    const body = await response.json();
-    const statuskode = response.status;
-    res.status(statuskode).send(body);
+    res.status(response.status).send(response.body);
   } catch (err: unknown) {
     const error = err as Error;
     console.log(error);
@@ -57,19 +51,20 @@ app.get(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
 
 app.post(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
   try {
-    const newHeaders = await updateHeaders(req.headers);
-
+    const oboToken = await getOboToken(req);
     const response = await fetch(
       process.env.SKATTETREKK_BACKEND_URL + "/api/skattetrekk",
       {
         method: req.method,
-        headers: newHeaders,
+        headers: {
+          'Authorization': 'Bearer ' + oboToken,
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(req.body),
       }
     );
 
-    const statuskode = response.status;
-    res.status(statuskode).send();
+    res.status(response.status).send();
   } catch (err: unknown) {
     const error = err as Error;
     console.log(error);
@@ -79,37 +74,6 @@ app.post(basePath + "/api/skattetrekk", async (req: Request, res: Response) => {
     });
   }
 });
-
-async function updateHeaders(
-  requestHeaders: IncomingHttpHeaders
-): Promise<Record<string, string>> {
-  if (!requestHeaders.authorization) {
-    throw new Error("Authorization header is missing");
-  }
-
-  const idToken = requestHeaders.authorization.replace("Bearer", "").trim();
-  const accessToken = await getTokenValue(idToken);
-
-  const newHeaders: Record<string, string> = {};
-  Object.entries(requestHeaders).forEach(([key, value]) => {
-    if (typeof value === "string") {
-      newHeaders[key] = value;
-    } else if (Array.isArray(value)) {
-      newHeaders[key] = value.join(", ");
-    }
-  });
-
-  newHeaders["authorization"] = "Bearer " + accessToken; // Override authorization header with new token
-  return newHeaders;
-}
-
-async function getTokenValue(idToken: string): Promise<string> {
-  return await tokenx.getTokenExchangeAccessToken(
-    client,
-    idToken,
-    process.env.SKATTETREKK_BACKEND_AUDIENCE!
-  );
-}
 
 app.get(`${basePath}/internal/isAlive`, (_req: Request, res: Response) => {
   res.sendStatus(200);
