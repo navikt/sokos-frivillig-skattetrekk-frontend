@@ -51,7 +51,7 @@ export default defineConfig(({ command, mode }) => {
           ...(mode === "mock" && {
             "/mockServiceWorker.js": {
               target: "http://localhost:5173",
-              rewrite: () => "utbetaling/skattetrekk/mockServiceWorker.js",
+              rewrite: () => "utbetalinger/frivillig-skattetrekk/mockServiceWorker.js",
             },
           }),
         },

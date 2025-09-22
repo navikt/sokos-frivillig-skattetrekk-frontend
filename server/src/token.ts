@@ -1,44 +1,44 @@
 import { getToken, requestOboToken, validateToken } from '@navikt/oasis';
 import { Request } from "express";
+import { logger } from './logger';
 
 async function getRequiredToken(req: Request): Promise<string> {
-  return new Promise<string>(async (resolve, reject) => {
-    if (process.env.NODE_ENV !== 'production') {
-      resolve('mock-token')
-    }
+  if (process.env.NODE_ENV !== 'production') {
+    return 'mock-token';
+  }
 
-    const token = getToken(req)
-    if (!token) {
-      return reject('Missing wonderwall cookie')
-    }
-    const validatedToken = await validateToken(token)
-    if (!validatedToken.ok) {
-      return reject(`Validation failed: ${validatedToken.error}`)
-    }
+  const initialToken = getToken(req);
+  if (!initialToken) {
+    logger.error('Missing wonderwall cookie');
+    throw new Error('Missing wonderwall cookie');
+  }
 
-    const audience = process.env.SKATTETREKK_BACKEND_AUDIENCE;
-    if (!audience) {
-      return reject('Missing SKATTETREKK_BACKEND_AUDIENCE environment variable')
-    }
+  const tokenValidationResult = await validateToken(initialToken);
+  if (!tokenValidationResult.ok) {
+    logger.error({ error: tokenValidationResult.error }, 'Token validation failed');
+    throw new Error(`Token validation failed: ${tokenValidationResult.error}`);
+  }
 
-    const oboToken = await requestOboToken(token, audience)
+  const backendAudience = process.env.SKATTETREKK_BACKEND_AUDIENCE;
+  if (!backendAudience) {
+    logger.error('Missing SKATTETREKK_BACKEND_AUDIENCE environment variable');
+    throw new Error('Missing SKATTETREKK_BACKEND_AUDIENCE environment variable');
+  }
 
-    if (!oboToken.ok) {
-      return reject(`Token exchange failed: ${oboToken.error}`)
-    }
+  const oboTokenResult = await requestOboToken(initialToken, backendAudience);
+  if (!oboTokenResult.ok) {
+    logger.error({ error: oboTokenResult.error }, 'Token exchange failed');
+    throw new Error(`Token exchange failed: ${oboTokenResult.error}`);
+  }
 
-    resolve(oboToken.token)
-  })
+  return oboTokenResult.token;
 }
 
-export async function getOboToken(
-  req: Request
-): Promise<string> {
+export async function getOboToken(req: Request): Promise<string> {
   if (!req.headers.authorization) {
+    logger.error('Authorization header is missing');
     throw new Error("Authorization header is missing");
   }
 
-  const oboToken = getRequiredToken(req);
-
-  return oboToken;
+  return await getRequiredToken(req);
 }
