@@ -16,7 +16,7 @@ import {
 import { useLocationState } from "../../common/useLocationState";
 import { numberFormatWithKr } from "../../common/Utils";
 import { PageLinks } from "../../routes";
-import { DataContext } from "../state/DataContextProvider";
+import { DataContext } from "../../state/DataContextProvider";
 import "./KvitteringPage.css";
 
 export const KvitteringPage = () => {
