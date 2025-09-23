@@ -13,8 +13,8 @@ import {
 import { useContext } from "react";
 import { MessageCode } from "../../api/skattetrekkBackendClient";
 import { useLocationState } from "../../common/useLocationState";
-import { RegistrerteSkattetrekk } from "../../components/initialPage/RegistrerteSkattetrekk";
-import { StopTilleggstrekkConfirmationModal } from "../../components/initialPage/StopTilleggstrekkConfirmationModal";
+import { RegistrerteSkattetrekk } from "./RegistrerteSkattetrekk";
+import { StopTilleggstrekkConfirmationModal } from "./StopTilleggstrekkConfirmationModal";
 import { PageLinks } from "../../routes";
 import { DataContext } from "../../state/DataContextProvider";
 import "./InitialPage.css";
