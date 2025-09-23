@@ -18,7 +18,7 @@ import {
 } from "../../common/useLocationState";
 import { numberFormatWithKr, parseInntekt } from "../../common/Utils";
 import { PageLinks } from "../../routes";
-import { DataContext } from "../../state/DataContextProvider";
+import { DataContext } from "../state/DataContextProvider";
 import "./EndringPage.css";
 
 export const EndringPage = () => {
