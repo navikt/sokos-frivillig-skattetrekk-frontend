@@ -21,7 +21,7 @@ import {
   showPercentageOrTable,
   visProsentEllerBelop,
 } from "../../common/Utils";
-import { ErrorMessage } from "../../components/pageStatus/ErrorMessage";
+import { ErrorMessage } from "../pageStatus/ErrorMessage";
 import { PageLinks } from "../../routes";
 import { DataContext } from "../../state/DataContextProvider";
 import "./OppsummeringPage.css";
