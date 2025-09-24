@@ -3,7 +3,7 @@ import { Outlet, RouteObject, useLocation } from "react-router-dom";
 import { ErrorMessage } from "./components/error/ErrorMessage";
 import { EndringPage } from "./pages/endringPage/EndringPage";
 import { InitialPage } from "./pages/initialPage/InitialPage";
-import { KvitteringPage } from "./pages/kvittering/KvitteringPage";
+import { KvitteringPage } from "./pages/kvitteringPage/KvitteringPage";
 import { OppsummeringPage } from "./pages/oppsummeringPage/OppsummeringPage";
 
 const ScrollToTop = () => {
