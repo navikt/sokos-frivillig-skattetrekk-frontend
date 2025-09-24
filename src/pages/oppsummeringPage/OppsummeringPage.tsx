@@ -21,7 +21,7 @@ import {
   showPercentageOrTable,
   visProsentEllerBelop,
 } from "../../common/Utils";
-import { ErrorMessage } from "../pageStatus/ErrorMessage";
+import { ErrorMessage } from "../../components/error/ErrorMessage";
 import { PageLinks } from "../../routes";
 import { DataContext } from "../../state/DataContextProvider";
 import "./OppsummeringPage.css";
@@ -54,7 +54,7 @@ export const OppsummeringPage = () => {
   );
 };
 
-interface Props {
+type Props = {
   tilleggstrekkType: SatsType;
   tilleggstrekkValue: number;
   getResponse: FrivilligSkattetrekkResponse;

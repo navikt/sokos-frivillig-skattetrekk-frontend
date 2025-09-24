@@ -1,24 +1,24 @@
-export interface TrekkDTO {
+export type TrekkDTO = {
   sats: number | null;
   satsType: SatsType | null;
   gyldigFraOgMed: Date | null;
-}
+};
 
-export interface ForenkletSkattetrekk {
+export type ForenkletSkattetrekk = {
   tabellNr: string | null;
   prosentsats: number | null;
-}
+};
 
 export enum SatsType {
   PROSENT = "PROSENT",
   KRONER = "KRONER",
 }
 
-export interface Message {
+export type Message = {
   details: string | null;
   type: MessageType;
   code: MessageCode | null;
-}
+};
 
 export enum MessageType {
   ERROR,
@@ -30,23 +30,23 @@ export enum MessageCode {
   OPPDRAG_UTILGJENGELIG = "OPPDRAG_UTILGJENGELIG",
 }
 
-export interface FrivilligSkattetrekkResponse {
+export type FrivilligSkattetrekkResponse = {
   data: FrivilligSkattetrekkData;
   messages: Message[] | null;
-}
+};
 
-export interface FrivilligSkattetrekkData {
+export type FrivilligSkattetrekkData = {
   tilleggstrekk: TrekkDTO | null;
   fremtidigTilleggstrekk: TrekkDTO | null;
   skattetrekk: ForenkletSkattetrekk | null;
   maxBelop: number;
   maxProsent: number;
-}
+};
 
-export interface UpdateTilleggstrekkRequest {
+export type UpdateTilleggstrekkRequest = {
   value: number;
   satsType: SatsType;
-}
+};
 
 const BASE_URL = "/utbetalinger/frivillig-skattetrekk/";
 
@@ -86,16 +86,16 @@ export async function fetchSkattetrekk(): Promise<FrivilligSkattetrekkResponse> 
           fremtidigTilleggstrekk: null,
           skattetrekk: null,
           maxBelop: 0,
-          maxProsent: 0
+          maxProsent: 0,
         },
         messages: [
-            {
-                details: "Ukjent feil ved henting av skattetrekk",
-                type: MessageType.ERROR,
-                code: MessageCode.OPPDRAG_UTILGJENGELIG,
-            },
-        ]
-      } as FrivilligSkattetrekkResponse
+          {
+            details: "Ukjent feil ved henting av skattetrekk",
+            type: MessageType.ERROR,
+            code: MessageCode.OPPDRAG_UTILGJENGELIG,
+          },
+        ],
+      } as FrivilligSkattetrekkResponse;
     }
   });
 }
@@ -115,8 +115,6 @@ export async function saveSkattetrekk(request: UpdateTilleggstrekkRequest) {
       "Content-Type": "application/json",
     };
   }
-
-  console.log("Saving skattetrekk 1", request);
 
   return await fetch(BASE_URL + "api/skattetrekk", {
     method: "POST",

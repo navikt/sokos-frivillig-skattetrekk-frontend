@@ -6,7 +6,7 @@ import {
 } from "../api/skattetrekkBackendClient";
 import "./DataContextProvider.css";
 
-interface DataContextValue {
+type DataContextValue = {
   getResponse: FrivilligSkattetrekkResponse | null;
   setGetResponse: (value: FrivilligSkattetrekkResponse) => void;
   setShouldRefetch: (value: boolean) => void;
@@ -24,7 +24,7 @@ const DataContextDefaultValue: DataContextValue = {
 
 export const DataContext = createContext(DataContextDefaultValue);
 
-interface DataContextProviderProps {
+type DataContextProviderProps = {
   children?: React.ReactNode;
 }
 
