@@ -1,9 +1,9 @@
-import { SatsType } from "@/api/skattetrekkBackendClient";
-import { PageLinks } from "@/routes";
+import { SatsType } from "../api/skattetrekkBackendClient";
+import { PageLinks } from "../routes";
 import { useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-interface LocationState {
+type LocationState = {
     pid: string | null;
     tilleggstrekkType: SatsType | null;
     tilleggstrekkValue: number | null;
@@ -14,11 +14,11 @@ export type SetLocationState = Partial<LocationState>
 
 type NavFn = (pageLink: PageLinks, state?: SetLocationState, replace?: boolean) => void
 
-interface UseLocationState extends LocationState {
+type UseLocationState = LocationState & {
     navigate: NavFn;
 }
 
-export const useLocationState = (): UseLocationState => {
+export function useLocationState(): UseLocationState {
     const nav = useNavigate()
     const location = useLocation()
 

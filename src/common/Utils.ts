@@ -1,5 +1,5 @@
 
-import { ForenkletSkattetrekk, SatsType, TrekkDTO } from "@/api/skattetrekkBackendClient";
+import { ForenkletSkattetrekk, SatsType, TrekkDTO } from "../api/skattetrekkBackendClient";
 import { format } from 'date-fns';
 
 export function numberFormatWithKr(value: number): string {

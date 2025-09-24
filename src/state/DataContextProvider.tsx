@@ -1,12 +1,12 @@
+import { BodyShort, Box, Loader, VStack } from "@navikt/ds-react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 import {
   fetchSkattetrekk,
   FrivilligSkattetrekkResponse,
-} from "@/api/skattetrekkBackendClient";
-import { BodyShort, Box, Loader, VStack } from "@navikt/ds-react";
-import React, { createContext, useCallback, useEffect, useState } from "react";
+} from "../api/skattetrekkBackendClient";
 import "./DataContextProvider.css";
 
-interface DataContextValue {
+type DataContextValue = {
   getResponse: FrivilligSkattetrekkResponse | null;
   setGetResponse: (value: FrivilligSkattetrekkResponse) => void;
   setShouldRefetch: (value: boolean) => void;
@@ -24,7 +24,7 @@ const DataContextDefaultValue: DataContextValue = {
 
 export const DataContext = createContext(DataContextDefaultValue);
 
-interface DataContextProviderProps {
+type DataContextProviderProps = {
   children?: React.ReactNode;
 }
 

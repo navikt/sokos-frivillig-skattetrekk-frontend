@@ -17,7 +17,8 @@ on:
 jobs:
   build-pr:
     name: Build and test
-    uses: navikt/mob-gha-workflows/.github/workflows/node-build-pr-v2.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/node-build-pr.yaml@main
     secrets: inherit
     with:
-      build-command: "npm run build:development"
+      client-build-command: "pnpm run build:development"
+      server-build-command: "cd server && pnpm run build"

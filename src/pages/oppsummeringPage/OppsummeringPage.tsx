@@ -1,18 +1,4 @@
 import {
-  FrivilligSkattetrekkResponse,
-  SatsType,
-  saveSkattetrekk,
-} from "@/api/skattetrekkBackendClient";
-import { useLocationState } from "@/common/useLocationState";
-import {
-  numberFormatWithKr,
-  showPercentageOrTable,
-  visProsentEllerBelop,
-} from "@/common/Utils";
-import { ErrorMessage } from "@/components/pageStatus/ErrorMessage";
-import { PageLinks } from "@/routes";
-import { DataContext } from "@/state/DataContextProvider";
-import {
   BodyLong,
   BodyShort,
   Box,
@@ -24,6 +10,20 @@ import {
   VStack,
 } from "@navikt/ds-react";
 import { useContext, useEffect, useState } from "react";
+import {
+  FrivilligSkattetrekkResponse,
+  SatsType,
+  saveSkattetrekk,
+} from "../../api/skattetrekkBackendClient";
+import { useLocationState } from "../../common/useLocationState";
+import {
+  numberFormatWithKr,
+  showPercentageOrTable,
+  visProsentEllerBelop,
+} from "../../common/Utils";
+import { ErrorMessage } from "../../components/error/ErrorMessage";
+import { PageLinks } from "../../routes";
+import { DataContext } from "../../state/DataContextProvider";
 import "./OppsummeringPage.css";
 
 export const OppsummeringPage = () => {
@@ -54,7 +54,7 @@ export const OppsummeringPage = () => {
   );
 };
 
-interface Props {
+type Props = {
   tilleggstrekkType: SatsType;
   tilleggstrekkValue: number;
   getResponse: FrivilligSkattetrekkResponse;
