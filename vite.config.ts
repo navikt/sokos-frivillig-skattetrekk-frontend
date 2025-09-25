@@ -1,8 +1,6 @@
-import react from '@vitejs/plugin-react';
+import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "url";
 import { UserConfig, defineConfig } from "vite";
-import eslint from 'vite-plugin-eslint2';
-import stylelint from 'vite-plugin-stylelint';
 
 const basePath = "/utbetalinger/frivillig-skattetrekk";
 
@@ -10,59 +8,53 @@ const basePath = "/utbetalinger/frivillig-skattetrekk";
 const buildConfig: UserConfig = {
   base: basePath,
   build: {
-    outDir: './dist',
-    target: 'esnext',
+    outDir: "./dist",
+    target: "esnext",
     rollupOptions: {
       input: {
-        appBorger: "./index.html"
-      }
+        appBorger: "./index.html",
+      },
     },
   },
-  plugins: [
-    react(),
-    eslint(),
-    stylelint({ fix: true }),
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url))
-    }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
   },
-}
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-  if (command === 'serve') {
-
+  if (command === "serve") {
     const devConfig: UserConfig = {
       base: basePath,
       build: {
         manifest: true,
         rollupOptions: {
           input: {
-            appBorger: './index.html',
-          }
+            appBorger: "./index.html",
+          },
         },
-        target: 'esnext'
+        target: "esnext",
       },
       server: {
-        open: '/index.html',
+        open: "/index.html",
         proxy: {
           ...(mode === "mock" && {
             "/mockServiceWorker.js": {
               target: "http://localhost:5173",
-              rewrite: () => "utbetalinger/frivillig-skattetrekk/mockServiceWorker.js",
+              rewrite: () =>
+                "utbetalinger/frivillig-skattetrekk/mockServiceWorker.js",
             },
           }),
         },
       },
-      plugins: [
-        react(),
-      ],
+      plugins: [react()],
       resolve: {
         alias: {
-          "@": fileURLToPath(new URL("./src", import.meta.url))
-        }
+          "@": fileURLToPath(new URL("./src", import.meta.url)),
+        },
       },
     };
 
