@@ -120,7 +120,7 @@
   "lint-staged": {
     "*.ts": "eslint",
     "*.tsx": "eslint",
-    "*.css": "stylelint --fix",
+    "*.css": "stylelint",
     "*": "prettier --write --ignore-unknown"
   },
   "engines": {

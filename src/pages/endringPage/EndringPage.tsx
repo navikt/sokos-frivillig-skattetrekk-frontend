@@ -1,8 +1,9 @@
+import React, { useContext, useEffect, useState } from "react";
 import {
   BodyLong,
   Button,
-  Heading,
   HStack,
+  Heading,
   Link,
   List,
   Radio,
@@ -10,13 +11,12 @@ import {
   TextField,
   VStack,
 } from "@navikt/ds-react";
-import React, { useContext, useEffect, useState } from "react";
 import { SatsType } from "../../api/skattetrekkBackendClient";
+import { numberFormatWithKr, parseInntekt } from "../../common/Utils";
 import {
   SetLocationState,
   useLocationState,
 } from "../../common/useLocationState";
-import { numberFormatWithKr, parseInntekt } from "../../common/Utils";
 import { PageLinks } from "../../routes";
 import { DataContext } from "../../state/DataContextProvider";
 import "./EndringPage.css";
@@ -27,16 +27,16 @@ export const EndringPage = () => {
     useLocationState();
 
   const [canContinue, setCanContinue] = useState<boolean | null>(
-    tilleggstrekkType !== null ? true : null
+    tilleggstrekkType !== null ? true : null,
   );
   const [type, setType] = useState<SatsType | null>(tilleggstrekkType);
   const [value, setValue] = useState<string | null>(
-    tilleggstrekkValue?.toString(10) ?? null
+    tilleggstrekkValue?.toString(10) ?? null,
   );
 
   const [buttonIsLoading, setButtonIsLoading] = useState(false);
   const [pageState, setPageState] = useState<"initial" | "cannotProceed">(
-    "initial"
+    "initial",
   );
   const [shouldValidateForm, setShouldValidateForm] = useState(false);
 
@@ -91,7 +91,7 @@ export const EndringPage = () => {
 
     if (canContinue === null) {
       setCanContinueError(
-        "Du må svare på om du har en av pengestøttene i kulepunktlisten"
+        "Du må svare på om du har en av pengestøttene i kulepunktlisten",
       );
     } else if (!canContinue) {
       setPageState("cannotProceed");
@@ -106,7 +106,7 @@ export const EndringPage = () => {
       tilleggstrekkRefFocus();
     } else if (type === SatsType.PROSENT && numericValue === 0) {
       setValueError(
-        `Du må oppgi mer enn 0 %. For å stoppe et frivillig skattetrekk, gå tilbake og klikk på knappen Stopp frivillig skattetrekk.`
+        `Du må oppgi mer enn 0 %. For å stoppe et frivillig skattetrekk, gå tilbake og klikk på knappen Stopp frivillig skattetrekk.`,
       );
       tilleggstrekkRefFocus();
     } else if (
@@ -117,7 +117,7 @@ export const EndringPage = () => {
       tilleggstrekkRefFocus();
     } else if (type === SatsType.KRONER && numericValue === 0) {
       setValueError(
-        `Du må oppgi et høyere beløp enn 0 kr. For å stoppe et frivillig skattetrekk, gå tilbake og klikk på knappen Stopp frivillig skattetrekk.`
+        `Du må oppgi et høyere beløp enn 0 kr. For å stoppe et frivillig skattetrekk, gå tilbake og klikk på knappen Stopp frivillig skattetrekk.`,
       );
       tilleggstrekkRefFocus();
     } else if (
@@ -126,8 +126,8 @@ export const EndringPage = () => {
     ) {
       setValueError(
         `Du kan maks oppgi ${numberFormatWithKr(
-          getResponse!.data.maxBelop
-        )}. Vil du trekke et høyere beløp, kan du legge det inn som prosent.`
+          getResponse!.data.maxBelop,
+        )}. Vil du trekke et høyere beløp, kan du legge det inn som prosent.`,
       );
       tilleggstrekkRefFocus();
     } else {
@@ -280,7 +280,7 @@ export const EndringPage = () => {
 
       {canContinue && type && (
         <TextField
-          id="tilleggstrekk_input"
+          id="tilleggstrekk-input"
           label={
             <span aria-hidden={valueError ? "true" : undefined}>
               {type === SatsType.PROSENT
