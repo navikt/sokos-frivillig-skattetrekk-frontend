@@ -34,32 +34,30 @@ jobs:
     with:
       client-build-command: "pnpm run build:development"
       server-build-command: "cd server && pnpm run build"
-      image-suffix: "development"
-      image-tag: "dev"
+      image-suffix: "dev"
 
   build-production:
-    needs: [ build-q2 ]
+    needs: [build-q2]
     name: Build/test & push image
     uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
     secrets: inherit
     with:
       client-build-command: "pnpm run build:production"
       server-build-command: "cd server && pnpm run build"
-      image-suffix: "production"
 
   deploy-q2:
-    needs: [ build-q2 ]
+    needs: [build-q2]
     name: Deploy to dev-gcp-q2
-    uses: navikt/mob-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@main
     with:
       cluster: dev-gcp
       resource: .nais/naiserator-q2.yaml
       image: ${{ needs.build-q2.outputs.image }}
 
   deploy-prod:
-    needs: [ deploy-q2, build-production]
+    needs: [deploy-q2, build-production]
     name: Deploy to prod-gcp
-    uses: navikt/mob-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@main
     with:
       cluster: prod-gcp
       resource: .nais/naiserator-prod.yaml
