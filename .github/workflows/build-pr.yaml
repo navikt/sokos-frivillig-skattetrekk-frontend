@@ -21,4 +21,4 @@ jobs:
     secrets: inherit
     with:
       client-build-command: "pnpm run build:development"
-      server-build-command: "cd server && pnpm run build"
+      server-build-command: "pnpm run build"

@@ -35,7 +35,7 @@ jobs:
     secrets: inherit
     with:
       client-build-command: "pnpm run build:development"
-      server-build-command: "cd server && pnpm run build"
+      server-build-command: "pnpm run build"
       image-suffix: "dev"
 
   build-production:
@@ -45,7 +45,7 @@ jobs:
     secrets: inherit
     with:
       client-build-command: "pnpm run build:production"
-      server-build-command: "cd server && pnpm run build"
+      server-build-command: "pnpm run build"
 
   deploy-q2:
     needs: [build-q2]
