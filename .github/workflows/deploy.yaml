@@ -10,10 +10,10 @@ on:
       - "CODEOWNERS"
       - ".gitignore"
       - ".github/workflows/build-pr.yaml"
+      - ".github/workflows/codeql-trivy-scan.yaml"
       - ".github/workflows/dependabot-automerge.yaml"
       - ".github/workflows/manual-deploy.yaml"
       - ".github/workflows/playwright.yaml"
-      - ".github/workflows/security.yaml"
       - ".github/dependabot.yaml"
 
   repository_dispatch:
@@ -22,45 +22,55 @@ on:
 env:
   TZ: Europe/Oslo
 
-permissions:
-  contents: write
-  id-token: write
-  pull-requests: write
-  deployments: write
-
 jobs:
-  build-q2:
-    name: Build/test & push image
+  build-push-image-q2:
+    permissions:
+      contents: read
+      id-token: write
+    name: Build application & build/push dev image
     uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
     secrets: inherit
     with:
-      client-build-command: "pnpm run build:development"
-      server-build-command: "pnpm run build"
-      image-suffix: "dev"
+      client-build-command: pnpm run build:development
+      server-build-command: pnpm run build
+      image-suffix: dev
 
-  build-production:
-    needs: [build-q2]
-    name: Build/test & push image
+  build-push-image-prod:
+    permissions:
+      contents: read
+      id-token: write
+    needs: [build-push-image-q2]
+    name: Build application & build/push prod image
     uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
     secrets: inherit
     with:
-      client-build-command: "pnpm run build:production"
-      server-build-command: "pnpm run build"
+      client-build-command: pnpm run build:production
+      server-build-command: pnpm run build
 
   deploy-q2:
-    needs: [build-q2]
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+      deployments: write
+    needs: [build-push-image-q2]
     name: Deploy to dev-gcp-q2
     uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@main
     with:
       cluster: dev-gcp
       resource: .nais/naiserator-q2.yaml
-      image: ${{ needs.build-q2.outputs.image }}
+      image: ${{ needs.build-push-image-q2.outputs.image }}
 
   deploy-prod:
-    needs: [deploy-q2, build-production]
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+      deployments: write
+    needs: [build-push-image-prod, deploy-q2]
     name: Deploy to prod-gcp
     uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@main
     with:
       cluster: prod-gcp
       resource: .nais/naiserator-prod.yaml
-      image: ${{ needs.build-production.outputs.image }}
+      image: ${{ needs.build-push-image-prod.outputs.image }}
