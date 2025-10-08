@@ -11,7 +11,7 @@ export async function proxyRoutes(
   logger.info(
     {
       method: req.method,
-      url: proxyUrl,
+      url: `https://${req.hostname}${proxyUrl}`,
       proxyFrom: req.originalUrl,
       proxyTo: proxyUrl,
     },
