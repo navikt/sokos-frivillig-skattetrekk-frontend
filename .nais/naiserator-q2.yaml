@@ -12,7 +12,6 @@ spec:
   image: "{{{ image }}}"
   port: 8080
   ingresses:
-    - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetaling/skattetrekk
     - https://sokos-frivillig-skattetrekk-frontend-q2.intern.dev.nav.no/utbetalinger/frivillig-skattetrekk
   replicas:
     min: 1

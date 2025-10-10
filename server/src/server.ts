@@ -1,8 +1,8 @@
 import express, { NextFunction, Request, Response } from "express";
 import expressStaticGzip from "express-static-gzip";
 import path from "path";
-import { proxyRoutes } from "./proxy";
 import { logger } from "./logger";
+import { proxyRoutes } from "./proxy";
 
 const BASE_PATH = "/utbetalinger/frivillig-skattetrekk";
 const BUILD_PATH = path.resolve(__dirname, "../dist");
@@ -19,32 +19,40 @@ server.use(
   expressStaticGzip(BUILD_PATH, {
     enableBrotli: true,
     orderPreference: ["br"],
-  })
+  }),
 );
 
 // AsyncHandler - wraps async functions and catches errors automatically
-function asyncHandler(fn: Function) {
+function asyncHandler(
+  fn: (req: Request, res: Response, next: NextFunction) => Promise<unknown>,
+) {
   return (req: Request, res: Response, next: NextFunction) => {
     Promise.resolve(fn(req, res, next)).catch(next);
   };
 }
 
-server.get(/^\/utbetaling\/skattetrekk(.*)$/, (req: Request, res: Response) => {
-  const newPath = req.originalUrl.replace(
-    "/utbetaling/skattetrekk",
-    BASE_PATH
-  );
-  res.redirect(301, newPath);
-});
-
 // Using asyncHandler - no more try/catch needed!
-server.get(`${BASE_PATH}/api/skattetrekk`, asyncHandler(async (req: Request, res: Response) => {
-  await proxyRoutes(req, res, `${SOKOS_FRIVILLIG_SKATTETREKK_BACKEND}/api/skattetrekk`);
-}));
+server.get(
+  `${BASE_PATH}/api/skattetrekk`,
+  asyncHandler(async (req: Request, res: Response) => {
+    await proxyRoutes(
+      req,
+      res,
+      `${SOKOS_FRIVILLIG_SKATTETREKK_BACKEND}/api/skattetrekk`,
+    );
+  }),
+);
 
-server.post(`${BASE_PATH}/api/skattetrekk`, asyncHandler(async (req: Request, res: Response) => {
-  await proxyRoutes(req, res, `${SOKOS_FRIVILLIG_SKATTETREKK_BACKEND}/api/skattetrekk`);
-}));
+server.post(
+  `${BASE_PATH}/api/skattetrekk`,
+  asyncHandler(async (req: Request, res: Response) => {
+    await proxyRoutes(
+      req,
+      res,
+      `${SOKOS_FRIVILLIG_SKATTETREKK_BACKEND}/api/skattetrekk`,
+    );
+  }),
+);
 
 server.get(`${BASE_PATH}/internal/isAlive`, (_req: Request, res: Response) => {
   res.sendStatus(200);
@@ -55,13 +63,13 @@ server.get(`${BASE_PATH}/internal/isReady`, (_req: Request, res: Response) => {
 });
 
 // Global error handler
-server.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+server.use((err: Error, _req: Request, res: Response) => {
   logger.error({ err }, "Request error occurred");
 
   res.status(500).json({
     message: err.message,
     // Only include stack trace in development
-    ...(process.env.NODE_ENV !== 'production' && { stack: err.stack })
+    ...(process.env.NODE_ENV !== "production" && { stack: err.stack }),
   });
 });
 
