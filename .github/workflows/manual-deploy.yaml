@@ -20,7 +20,7 @@ jobs:
     uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
     secrets: inherit
     with:
-      client-build-command: pnpm run build:development
+      app-build-command: pnpm run build:development
       server-build-command: pnpm run build
       image-suffix: dev
       image-tag: snapshot

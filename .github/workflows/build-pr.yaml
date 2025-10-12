@@ -22,5 +22,5 @@ jobs:
     uses: navikt/mob-gha-workflows/.github/workflows/node-build-pr.yaml@main
     secrets: inherit
     with:
-      client-build-command: pnpm run build:development
+      app-build-command: pnpm run build:development
       server-build-command: pnpm run build
