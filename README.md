@@ -2,13 +2,13 @@
 
 # Innholdsoversikt
 
-* [1. Funksjonelle krav](#1-funksjonelle-krav)
-* [2. Utviklingsmiljø](#2-utviklingsmiljø)
-* [3. Programvarearkitektur](#3-programvarearkitektur)
-* [4. Deployment](#4-deployment)
-* [5. Autentisering](#5-autentisering)
-* [6. Drift og støtte](#6-drift-og-støtte)
-* [7. Henvendelser](#7-henvendelser)
+- [1. Funksjonelle krav](#1-funksjonelle-krav)
+- [2. Utviklingsmiljø](#2-utviklingsmiljø)
+- [3. Programvarearkitektur](#3-programvarearkitektur)
+- [4. Deployment](#4-deployment)
+- [5. Autentisering](#5-autentisering)
+- [6. Drift og støtte](#6-drift-og-støtte)
+- [7. Henvendelser](#7-henvendelser)
 
 ---
 
@@ -20,18 +20,18 @@ Webapplikasjon på nav.no for å administrere frivillig skattetrekk på et utval
 
 ### Forutsetninger
 
-* [Node.js](https://nodejs.org/en)
-* [pnpm](https://pnpm.io/)
+- [Node.js](https://nodejs.org/en)
+- [pnpm](https://pnpm.io/)
 
 ### Bygge prosjekt
 
-* Development: `pnpm run build:development` -> For å laste inn [.env.development](.env.development)
-* Production: `pnpm run build:production` -> For å laste inn [.env.production](.env.production)
+- Development: `pnpm run build:development` -> For å laste inn [.env.development](.env.development)
+- Production: `pnpm run build:production` -> For å laste inn [.env.production](.env.production)
 
 ### Lokal utvikling
 
-* Mot mock: `pnpm run dev`
-* Mot backend lokalt: `pnpm run dev:backend`
+- Mot mock: `pnpm run dev`
+- Mot backend lokalt: `pnpm run dev:backend`
 
 # 3. Programvarearkitektur
 
@@ -44,7 +44,7 @@ Distribusjon av tjenesten er gjort med bruk av Github Actions.
 
 Push/merge til main branche vil teste, bygge og deploye til produksjonsmiljø og testmiljø.
 
-# 7. Autentisering
+# 5. Autentisering
 
 Applikasjonen bruker [ID-porten](https://docs.nais.io/auth/idporten/) for autentisering til borgere og [TokenX](https://docs.nais.io/auth/tokenx/) for å kunne kalle [sokos-frivillig-skattetrekk-backend](https://github.com/navikt/sokos-frivillig-skattetrekk-backend)
 
@@ -89,7 +89,7 @@ Varsler blir sendt til følgende Slack-kanaler:
 
 ### Grafana
 
-- [appavn](url)
+- [appnavn](url)
 
 ---
 
