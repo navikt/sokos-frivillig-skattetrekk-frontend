@@ -18,7 +18,7 @@ import {
   useLocationState,
 } from "../../common/useLocationState";
 import { PageLinks } from "../../routes";
-import { DataContext } from "../../state/DataContextProvider";
+import { DataContext } from "../../state/DataContext";
 import "./EndringPage.css";
 
 export const EndringPage = () => {

@@ -1,7 +1,7 @@
-import { BodyLong, Button, HStack, Modal } from "@navikt/ds-react";
 import { useContext, useState } from "react";
+import { BodyLong, Button, HStack, Modal } from "@navikt/ds-react";
 import { SatsType, saveSkattetrekk } from "../../api/skattetrekkBackendClient";
-import { DataContext } from "../../state/DataContextProvider";
+import { DataContext } from "../../state/DataContext";
 
 export function StopTilleggstrekkConfirmationModal() {
   const [open, setOpen] = useState(false);
