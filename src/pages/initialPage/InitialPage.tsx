@@ -1,23 +1,23 @@
+import { useContext } from "react";
 import {
   Accordion,
   Alert,
   BodyLong,
   Button,
   GuidePanel,
-  Heading,
   HStack,
+  Heading,
   Link,
   List,
   VStack,
 } from "@navikt/ds-react";
-import { useContext } from "react";
 import { MessageCode } from "../../api/skattetrekkBackendClient";
 import { useLocationState } from "../../common/useLocationState";
+import { PageLinks } from "../../routes";
+import { DataContext } from "../../state/DataContext";
+import "./InitialPage.css";
 import { RegistrerteSkattetrekk } from "./RegistrerteSkattetrekk";
 import { StopTilleggstrekkConfirmationModal } from "./StopTilleggstrekkConfirmationModal";
-import { PageLinks } from "../../routes";
-import { DataContext } from "../../state/DataContextProvider";
-import "./InitialPage.css";
 
 export function InitialPage() {
   const { getResponse } = useContext(DataContext);
@@ -75,7 +75,7 @@ export function InitialPage() {
 
   if (
     getResponse?.messages?.find(
-      (message) => message.code === MessageCode.OPPDRAG_UTILGJENGELIG
+      (message) => message.code === MessageCode.OPPDRAG_UTILGJENGELIG,
     )
   ) {
     return (
@@ -170,7 +170,8 @@ export function InitialPage() {
                   blir trukket skatt. Det kan ikke trekkes frivillig skatt på
                   skattefrie pengestøtter. Frivillig skattetrekk legges inn som
                   et fast kronebeløp eller som et fast prosenttrekk per måned,
-                  og vil gjelde fra og med måneden etter at du har lagt det inn.{" "}
+                  og vil gjelde fra og med måneden etter at du har lagt det
+                  inn.{" "}
                 </BodyLong>
                 <Link
                   href={import.meta.env.VITE_FRIVILLIG_SKATTETREKK_INFO_URL}

@@ -1,29 +1,29 @@
+import { useContext, useEffect, useState } from "react";
 import {
   BodyLong,
   BodyShort,
   Box,
   Button,
   FormSummary,
-  Heading,
   HStack,
+  Heading,
   Loader,
   VStack,
 } from "@navikt/ds-react";
-import { useContext, useEffect, useState } from "react";
 import {
   FrivilligSkattetrekkResponse,
   SatsType,
   saveSkattetrekk,
 } from "../../api/skattetrekkBackendClient";
-import { useLocationState } from "../../common/useLocationState";
 import {
   numberFormatWithKr,
   showPercentageOrTable,
   visProsentEllerBelop,
 } from "../../common/Utils";
+import { useLocationState } from "../../common/useLocationState";
 import { ErrorMessage } from "../../components/error/ErrorMessage";
 import { PageLinks } from "../../routes";
-import { DataContext } from "../../state/DataContextProvider";
+import { DataContext } from "../../state/DataContext";
 import "./OppsummeringPage.css";
 
 export const OppsummeringPage = () => {
@@ -35,7 +35,7 @@ export const OppsummeringPage = () => {
     if (tilleggstrekkType === null || tilleggstrekkValue === null) {
       navigate(PageLinks.INDEX);
     }
-  }, [getResponse, tilleggstrekkType, tilleggstrekkValue]);
+  }, [getResponse, tilleggstrekkType, tilleggstrekkValue, navigate]);
 
   if (
     getResponse === null ||
@@ -58,7 +58,7 @@ type Props = {
   tilleggstrekkType: SatsType;
   tilleggstrekkValue: number;
   getResponse: FrivilligSkattetrekkResponse;
-}
+};
 
 const InternalOppsummeringPage = ({
   tilleggstrekkValue,
@@ -83,11 +83,10 @@ const InternalOppsummeringPage = ({
         tilleggstrekkValue,
         isSent: true,
       });
-    } catch (error) {
+    } catch {
       setIsSending(false);
       setIsError(true);
       setLoaderOverride(false);
-      console.error("ErrorMessage saving skattetrekk:", error);
     }
   }
 
@@ -183,7 +182,7 @@ const InternalOppsummeringPage = ({
                   satsType: tilleggstrekkType,
                   gyldigFraOgMed: null,
                 },
-                null
+                null,
               )}
             </FormSummary.Value>
           </FormSummary.Answer>

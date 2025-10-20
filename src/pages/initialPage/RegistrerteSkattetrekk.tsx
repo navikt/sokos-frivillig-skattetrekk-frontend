@@ -16,11 +16,6 @@ type RegistrerteSkattetrekkProps = {
   isDecember: boolean;
 };
 
-export function formatDateLong(value: Date): string {
-  const date = new Date(value);
-  return date.toLocaleDateString("no-NO", { day: "numeric", month: "long" });
-}
-
 export function RegistrerteSkattetrekk(props: RegistrerteSkattetrekkProps) {
   return (
     <VStack gap="6">
@@ -59,7 +54,7 @@ export function RegistrerteSkattetrekk(props: RegistrerteSkattetrekkProps) {
         <dd className="data">
           {visProsentEllerBelop(
             props.tilleggstrekk,
-            props.fremtidigTilleggstrekk
+            props.fremtidigTilleggstrekk,
           )}
         </dd>
 
