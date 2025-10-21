@@ -13,11 +13,9 @@ const createLogger = (
         level: (label) => {
           return { level: label.toUpperCase() };
         },
-        bindings: (bindings: Record<string, unknown>) => {
-          return bindings;
-        },
-        log: (object: Record<string, unknown>) => {
-          if (object.err instanceof Error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        log: (object: any) => {
+          if (object.err) {
             const err = pino.stdSerializers.err(object.err);
             object.stack_trace = err.stack;
             object.type = err.type;
