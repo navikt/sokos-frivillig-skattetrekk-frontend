@@ -13,6 +13,9 @@ const createLogger = (
         level: (label) => {
           return { level: label.toUpperCase() };
         },
+        bindings: (bindings: Record<string, unknown>) => {
+          return bindings;
+        },
         log: (object: Record<string, unknown>) => {
           if (object.err instanceof Error) {
             const err = pino.stdSerializers.err(object.err);
