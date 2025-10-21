@@ -16,13 +16,10 @@ const createLogger = (
         log: (object: Record<string, unknown>) => {
           if (object.err instanceof Error) {
             const err = pino.stdSerializers.err(object.err);
-            return {
-              ...object,
-              stack_trace: err.stack,
-              type: err.type,
-              message: err.message,
-              err: undefined,
-            };
+            object.stack_trace = err.stack;
+            object.type = err.type;
+            object.message = err.message;
+            delete object.err;
           }
 
           return object;

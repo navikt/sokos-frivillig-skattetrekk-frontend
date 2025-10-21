@@ -31,6 +31,7 @@ export async function proxyRoutes(
     {
       url: response.url,
       status: response.status,
+      statusText: response.statusText,
     },
     "Reverse Proxy HTTP Response",
   );
