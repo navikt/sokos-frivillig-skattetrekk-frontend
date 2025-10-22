@@ -1,18 +1,10 @@
-import { useEffect } from "react";
-import { Outlet, RouteObject, useLocation } from "react-router-dom";
+import { RouteObject } from "react-router-dom";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { ErrorMessage } from "./components/error/ErrorMessage";
 import { EndringPage } from "./pages/endringPage/EndringPage";
 import { InitialPage } from "./pages/initialPage/InitialPage";
 import { KvitteringPage } from "./pages/kvitteringPage/KvitteringPage";
 import { OppsummeringPage } from "./pages/oppsummeringPage/OppsummeringPage";
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return <Outlet />;
-};
 
 export enum PageLinks {
   INDEX = "/",

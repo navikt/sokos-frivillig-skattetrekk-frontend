@@ -1,3 +1,4 @@
+import { useContext, useEffect } from "react";
 import {
   Alert,
   BodyLong,
@@ -7,16 +8,15 @@ import {
   Loader,
   VStack,
 } from "@navikt/ds-react";
-import { useContext, useEffect } from "react";
 import {
   FrivilligSkattetrekkData,
   MessageType,
   SatsType,
 } from "../../api/skattetrekkBackendClient";
-import { useLocationState } from "../../common/useLocationState";
 import { numberFormatWithKr } from "../../common/Utils";
+import { useLocationState } from "../../common/useLocationState";
 import { PageLinks } from "../../routes";
-import { DataContext } from "../../state/DataContextProvider";
+import { DataContext } from "../../state/DataContext";
 import "./KvitteringPage.css";
 
 export const KvitteringPage = () => {
@@ -34,14 +34,14 @@ export const KvitteringPage = () => {
     }
     setLoaderOverride(true);
     setShouldRefetch(true);
-  }, [isSent]);
+  }, [isSent, navigate, setLoaderOverride, setShouldRefetch]);
 
   if (getResponse === null) {
     return null;
   }
 
   function visRiktigNyregistertTilleggstrekk(data: FrivilligSkattetrekkData) {
-    var registrertFrivilligSkattetrekk = !data.fremtidigTilleggstrekk
+    const registrertFrivilligSkattetrekk = !data.fremtidigTilleggstrekk
       ? data.tilleggstrekk
       : data.fremtidigTilleggstrekk;
 
@@ -50,7 +50,7 @@ export const KvitteringPage = () => {
         {registrertFrivilligSkattetrekk?.satsType === SatsType.PROSENT
           ? `Frivillig skattetrekk på ${registrertFrivilligSkattetrekk?.sats} % ble registrert`
           : `Frivillig skattetrekk på ${numberFormatWithKr(
-              registrertFrivilligSkattetrekk?.sats ?? 0
+              registrertFrivilligSkattetrekk?.sats ?? 0,
             )} per måned ble registrert`}
       </>
     );
@@ -72,7 +72,7 @@ export const KvitteringPage = () => {
 
   if (
     getResponse.messages?.some(
-      (msg: { type: MessageType }) => msg.type === MessageType.ERROR
+      (msg: { type: MessageType }) => msg.type === MessageType.ERROR,
     )
   ) {
     return (

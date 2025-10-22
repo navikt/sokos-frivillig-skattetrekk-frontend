@@ -1,32 +1,33 @@
 import pino, { DestinationStream, LoggerOptions } from "pino";
 
 const createLogger = (
-    defaultConfig: LoggerOptions = {},
-    destination?: DestinationStream,
+  defaultConfig: LoggerOptions = {},
+  destination?: DestinationStream,
 ): pino.Logger =>
-    pino(
-        {
-            ...defaultConfig,
-            timestamp: () => `,"@timestamp":"${new Date().toISOString()}"`,
-            messageKey: "message",
-            formatters: {
-                level: (label) => {
-                    return { level: label.toUpperCase() };
-                },
-                log: (object: any) => {
-                    if (object.err) {
-                        const err = pino.stdSerializers.err(object.err);
-                        object.stack_trace = err.stack;
-                        object.type = err.type;
-                        object.message = err.message;
-                        delete object.err;
-                    }
-
-                    return object;
-                },
-            },
+  pino(
+    {
+      ...defaultConfig,
+      timestamp: () => `,"@timestamp":"${new Date().toISOString()}"`,
+      messageKey: "message",
+      formatters: {
+        level: (label) => {
+          return { level: label.toUpperCase() };
         },
-        destination,
-    );
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        log: (object: any) => {
+          if (object.err) {
+            const err = pino.stdSerializers.err(object.err);
+            object.stack_trace = err.stack;
+            object.type = err.type;
+            object.message = err.message;
+            delete object.err;
+          }
+
+          return object;
+        },
+      },
+    },
+    destination,
+  );
 
 export const logger = createLogger();
