@@ -23,7 +23,7 @@
     "@navikt/ds-react": "^7.33.5",
     "@navikt/ds-tokens": "^7.33.5",
     "@navikt/nav-dekoratoren-moduler": "^3.5.0",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
