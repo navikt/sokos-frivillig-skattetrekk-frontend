@@ -31,7 +31,7 @@ export const OppsummeringPage = () => {
 	const { navigate, tilleggstrekkType, tilleggstrekkValue } =
 		useLocationState();
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: false positive
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <exhaustive-deps>
 	useEffect(() => {
 		if (tilleggstrekkType === null || tilleggstrekkValue === null) {
 			navigate(PageLinks.INDEX);

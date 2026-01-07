@@ -144,7 +144,7 @@ export function InitialPage() {
 							getResponse.data.fremtidigTilleggstrekk !== null) ? (
 							<StopTilleggstrekkConfirmationModal />
 						) : (
-							// biome-ignore lint/complexity/noUselessFragments: false positive
+							// biome-ignore lint/complexity/noUselessFragments: <useless-fragments>
 							<></>
 						)}
 					</VStack>

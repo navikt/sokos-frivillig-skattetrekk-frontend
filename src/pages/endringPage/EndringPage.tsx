@@ -56,7 +56,7 @@ export const EndringPage = () => {
 			tilleggstrekkInputRef.current?.focus();
 		}, 0);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: false positive
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <exhaustive-deps>
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [pageState]);

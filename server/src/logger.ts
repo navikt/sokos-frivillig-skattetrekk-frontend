@@ -13,7 +13,7 @@ const createLogger = (
 				level: (label) => {
 					return { level: label.toUpperCase() };
 				},
-				// biome-ignore lint/suspicious/noExplicitAny: false positive
+				// biome-ignore lint/suspicious/noExplicitAny: <custom log formatter>
 				log: (object: any) => {
 					if (object.err) {
 						const err = pino.stdSerializers.err(object.err);

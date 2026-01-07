@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 
 export const ScrollToTop = () => {
 	const { pathname } = useLocation();
-	// biome-ignore lint/correctness/useExhaustiveDependencies: false positive
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <exhaustive-deps>
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [pathname]);

@@ -19,7 +19,7 @@ function DataContextProvider(props: DataContextProviderProps) {
 		useState<FrivilligSkattetrekkResponse | null>(null);
 	const [loaderOverride, setLoaderOverride] = useState(false);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: false positive
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <exhaustive-deps>
 	const refetch = useCallback(async () => {
 		setIsFetching(true);
 		setShouldRefetch(false);
