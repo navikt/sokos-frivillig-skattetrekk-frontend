@@ -94,6 +94,9 @@ dist
 # Serverless directories
 .serverless/
 
+# MSW generated files
+public/mockServiceWorker.js
+
 # FuseBox cache
 .fusebox/
 

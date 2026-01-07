@@ -1,57 +1,58 @@
 @import url("@navikt/ds-tokens");
 
 .contentWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin: 4rem 1rem 8rem;
-  z-index: 1;
-  hyphens: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin: 4rem 1rem 8rem;
+	z-index: 1;
+	hyphens: none;
 
-  @media (width >=576px) {
-    /* Media queries støtter enda ikke variabler */
-    margin: 4rem 0 8rem;
-  }
+	@media (width >= 576px) {
+		/* Media queries støtter enda ikke variabler */
+		margin: 4rem 0 8rem;
+	}
 }
 
 .main-header {
-  margin-bottom: var(--a-spacing-12) !important;
+	/* biome-ignore lint/complexity/noImportantStyles: false positive */
+	margin-bottom: var(--a-spacing-12) !important;
 }
 
 .hr-spacing {
-  margin-top: 1em;
-  margin-bottom: 2em;
+	margin-top: 1em;
+	margin-bottom: 2em;
 }
 
 .gap-2 {
-  gap: 0.5rem;
+	gap: 0.5rem;
 }
 
 .mainBody {
-  margin: 0 auto;
-  max-width: 576px;
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  overflow: visible;
-  position: relative;
-  overflow-wrap: break-word;
-  hyphens: auto;
+	margin: 0 auto;
+	max-width: 576px;
+	min-height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	overflow: visible;
+	position: relative;
+	overflow-wrap: break-word;
+	hyphens: auto;
 }
 
 .header {
-  margin-bottom: var(--a-spacing-3);
+	margin-bottom: var(--a-spacing-3);
 }
 
 .representasjon-banner {
-  margin-bottom: var(--a-spacing-9);
+	margin-bottom: var(--a-spacing-9);
 }
 
 .microfrontend-container {
-  margin: 0 auto;
-  max-width: 600px;
-  padding-inline: 12px;
-  width: 100%;
+	margin: 0 auto;
+	max-width: 600px;
+	padding-inline: 12px;
+	width: 100%;
 }

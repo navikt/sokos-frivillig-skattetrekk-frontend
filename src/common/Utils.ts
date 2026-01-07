@@ -1,69 +1,89 @@
-
-import { ForenkletSkattetrekk, SatsType, TrekkDTO } from "../api/skattetrekkBackendClient";
-import { format } from 'date-fns';
+import { format } from "date-fns";
+import {
+	type ForenkletSkattetrekk,
+	SatsType,
+	type TrekkDTO,
+} from "../api/skattetrekkBackendClient";
 
 export function numberFormatWithKr(value: number): string {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' kr'
+	return `${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} kr`;
 }
 
 export function numberFormat(value: number): string {
-  return value.toLocaleString('no-NO')
+	return value.toLocaleString("no-NO");
 }
 
 export function formatDateTime(value: Date): string {
-  const date = new Date(value)
-  return (
-    date.toLocaleDateString('no-NO', { day: 'numeric', month: 'long', year: 'numeric' }) +
-    ' kl. ' +
-    date.toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' })
-  )
+	const date = new Date(value);
+	return (
+		date.toLocaleDateString("no-NO", {
+			day: "numeric",
+			month: "long",
+			year: "numeric",
+		}) +
+		" kl. " +
+		date.toLocaleTimeString("no-NO", { hour: "2-digit", minute: "2-digit" })
+	);
 }
 
 export function formatDate(value: Date): string {
-  return format(value, 'dd.MM.yyyy')
+	return format(value, "dd.MM.yyyy");
 }
 
 export function formatDateLong(value: Date): string {
-  const date = new Date(value)
-  return date.toLocaleDateString('no-NO', { day: 'numeric', month: 'long', year: 'numeric' })
+	const date = new Date(value);
+	return date.toLocaleDateString("no-NO", {
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+	});
 }
 
 export const parseInntekt = (s: string | null) => {
-  if (s === null || s.length === 0) {
-    return 0
-  }
+	if (s === null || s.length === 0) {
+		return 0;
+	}
 
-  if (s.includes('.')) {
-    return NaN
-  }
+	if (s.includes(".")) {
+		return NaN;
+	}
 
-  return Number(s.replace(/\s+/g, ''))
-}
+	return Number(s.replace(/\s+/g, ""));
+};
 
 export function showPercentageOrTable(skattetrekk: ForenkletSkattetrekk) {
-  if (skattetrekk.tabellNr != null) {
-    return `Tabell ${skattetrekk.tabellNr}`
-  } else if (skattetrekk.prosentsats != null) {
-    return `${skattetrekk.prosentsats} %`
-  }
+	if (skattetrekk.tabellNr != null) {
+		return `Tabell ${skattetrekk.tabellNr}`;
+	} else if (skattetrekk.prosentsats != null) {
+		return `${skattetrekk.prosentsats} %`;
+	}
 
-  return "Ikke funnet"
+	return "Ikke funnet";
 }
 
-export function visProsentEllerBelop(tilleggstrekk: TrekkDTO | null, fremtidigTilleggstrekk: TrekkDTO | null) {
-  if (tilleggstrekk == null && fremtidigTilleggstrekk != null) {
-    return "Ikke løpende"
-  }
+export function visProsentEllerBelop(
+	tilleggstrekk: TrekkDTO | null,
+	fremtidigTilleggstrekk: TrekkDTO | null,
+) {
+	if (tilleggstrekk == null && fremtidigTilleggstrekk != null) {
+		return "Ikke løpende";
+	}
 
-  if (tilleggstrekk == null) {
-    return "Ingen"
-  }
+	if (tilleggstrekk == null) {
+		return "Ingen";
+	}
 
-  if (tilleggstrekk.satsType == SatsType.PROSENT && tilleggstrekk.sats != null) {
-    return `${tilleggstrekk.sats} %`
-  } else if (tilleggstrekk.satsType == SatsType.KRONER && tilleggstrekk.sats != null) {
-    return `${numberFormatWithKr(tilleggstrekk.sats)} per måned`
-  }
+	if (
+		tilleggstrekk.satsType === SatsType.PROSENT &&
+		tilleggstrekk.sats != null
+	) {
+		return `${tilleggstrekk.sats} %`;
+	} else if (
+		tilleggstrekk.satsType === SatsType.KRONER &&
+		tilleggstrekk.sats != null
+	) {
+		return `${numberFormatWithKr(tilleggstrekk.sats)} per måned`;
+	}
 
-  return "Ingen"
+	return "Ingen";
 }
