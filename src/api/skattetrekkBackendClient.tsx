@@ -1,129 +1,129 @@
 export type TrekkDTO = {
-  sats: number | null;
-  satsType: SatsType | null;
-  gyldigFraOgMed: Date | null;
+	sats: number | null;
+	satsType: SatsType | null;
+	gyldigFraOgMed: Date | null;
 };
 
 export type ForenkletSkattetrekk = {
-  tabellNr: string | null;
-  prosentsats: number | null;
+	tabellNr: string | null;
+	prosentsats: number | null;
 };
 
 export enum SatsType {
-  PROSENT = "PROSENT",
-  KRONER = "KRONER",
+	PROSENT = "PROSENT",
+	KRONER = "KRONER",
 }
 
 export type Message = {
-  details: string | null;
-  type: MessageType;
-  code: MessageCode | null;
+	details: string | null;
+	type: MessageType;
+	code: MessageCode | null;
 };
 
 export enum MessageType {
-  ERROR,
-  WARNING,
-  INFO,
+	ERROR,
+	WARNING,
+	INFO,
 }
 
 export enum MessageCode {
-  OPPDRAG_UTILGJENGELIG = "OPPDRAG_UTILGJENGELIG",
+	OPPDRAG_UTILGJENGELIG = "OPPDRAG_UTILGJENGELIG",
 }
 
 export type FrivilligSkattetrekkResponse = {
-  data: FrivilligSkattetrekkData;
-  messages: Message[] | null;
+	data: FrivilligSkattetrekkData;
+	messages: Message[] | null;
 };
 
 export type FrivilligSkattetrekkData = {
-  tilleggstrekk: TrekkDTO | null;
-  fremtidigTilleggstrekk: TrekkDTO | null;
-  skattetrekk: ForenkletSkattetrekk | null;
-  maxBelop: number;
-  maxProsent: number;
+	tilleggstrekk: TrekkDTO | null;
+	fremtidigTilleggstrekk: TrekkDTO | null;
+	skattetrekk: ForenkletSkattetrekk | null;
+	maxBelop: number;
+	maxProsent: number;
 };
 
 export type UpdateTilleggstrekkRequest = {
-  value: number;
-  satsType: SatsType;
+	value: number;
+	satsType: SatsType;
 };
 
 const BASE_URL = "/utbetalinger/frivillig-skattetrekk/";
 
 export async function fetchSkattetrekk(): Promise<FrivilligSkattetrekkResponse> {
-  const searchParams = new URLSearchParams(document.location.search);
-  const pid = searchParams.get("pid");
+	const searchParams = new URLSearchParams(document.location.search);
+	const pid = searchParams.get("pid");
 
-  let headers;
-  if (pid !== null) {
-    headers = {
-      "Content-Type": "application/json",
-      pid: pid,
-    };
-  } else {
-    headers = {
-      "Content-Type": "application/json",
-    };
-  }
+	let headers: { "Content-Type": string; pid?: string };
+	if (pid !== null) {
+		headers = {
+			"Content-Type": "application/json",
+			pid: pid,
+		};
+	} else {
+		headers = {
+			"Content-Type": "application/json",
+		};
+	}
 
-  return await fetch(BASE_URL + "api/skattetrekk", {
-    method: "GET",
-    credentials: "include",
-    headers: headers,
-  }).then((response) => {
-    if (response.status >= 200 && response.status < 300) {
-      return response.json().then((data) => {
-        return data as FrivilligSkattetrekkResponse;
-      });
-    } else if (response.status == 400) {
-      return response.json().then((data) => {
-        return data.feilkode;
-      });
-    } else {
-      return {
-        data: {
-          tilleggstrekk: null,
-          fremtidigTilleggstrekk: null,
-          skattetrekk: null,
-          maxBelop: 0,
-          maxProsent: 0,
-        },
-        messages: [
-          {
-            details: "Ukjent feil ved henting av skattetrekk",
-            type: MessageType.ERROR,
-            code: MessageCode.OPPDRAG_UTILGJENGELIG,
-          },
-        ],
-      } as FrivilligSkattetrekkResponse;
-    }
-  });
+	return await fetch(`${BASE_URL}api/skattetrekk`, {
+		method: "GET",
+		credentials: "include",
+		headers: headers,
+	}).then((response) => {
+		if (response.status >= 200 && response.status < 300) {
+			return response.json().then((data) => {
+				return data as FrivilligSkattetrekkResponse;
+			});
+		} else if (response.status === 400) {
+			return response.json().then((data) => {
+				return data.feilkode;
+			});
+		} else {
+			return {
+				data: {
+					tilleggstrekk: null,
+					fremtidigTilleggstrekk: null,
+					skattetrekk: null,
+					maxBelop: 0,
+					maxProsent: 0,
+				},
+				messages: [
+					{
+						details: "Ukjent feil ved henting av skattetrekk",
+						type: MessageType.ERROR,
+						code: MessageCode.OPPDRAG_UTILGJENGELIG,
+					},
+				],
+			} as FrivilligSkattetrekkResponse;
+		}
+	});
 }
 
 export async function saveSkattetrekk(request: UpdateTilleggstrekkRequest) {
-  const searchParams = new URLSearchParams(document.location.search);
-  const pid = searchParams.get("pid");
+	const searchParams = new URLSearchParams(document.location.search);
+	const pid = searchParams.get("pid");
 
-  let headers;
-  if (pid !== null) {
-    headers = {
-      "Content-Type": "application/json",
-      pid: pid,
-    };
-  } else {
-    headers = {
-      "Content-Type": "application/json",
-    };
-  }
+	let headers: { "Content-Type": string; pid?: string };
+	if (pid !== null) {
+		headers = {
+			"Content-Type": "application/json",
+			pid: pid,
+		};
+	} else {
+		headers = {
+			"Content-Type": "application/json",
+		};
+	}
 
-  return await fetch(BASE_URL + "api/skattetrekk", {
-    method: "POST",
-    credentials: "include",
-    headers: headers,
-    body: JSON.stringify(request),
-  }).then((response) => {
-    if (response.status < 200 || response.status >= 300) {
-      throw new Error("Fikk ikke 2xx respons fra server");
-    }
-  });
+	return await fetch(`${BASE_URL}api/skattetrekk`, {
+		method: "POST",
+		credentials: "include",
+		headers: headers,
+		body: JSON.stringify(request),
+	}).then((response) => {
+		if (response.status < 200 || response.status >= 300) {
+			throw new Error("Fikk ikke 2xx respons fra server");
+		}
+	});
 }
