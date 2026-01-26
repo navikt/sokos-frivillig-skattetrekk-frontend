@@ -16,8 +16,8 @@ importers:
         specifier: ^2.3.11
         version: 2.3.11
       '@navikt/aksel-icons':
-        specifier: ^7.38.0
-        version: 7.38.0
+        specifier: ^8.0.0
+        version: 8.0.0
       '@navikt/aksel-stylelint':
         specifier: ^7.38.0
         version: 7.38.0
@@ -549,8 +549,11 @@ packages:
     resolution: {integrity: sha512-EFd6cVbHsgLa6wa4RljGj6Wk75qoHxUSyc5asLyyPSyuhIcdS2Q3Phw6ImS1q+CkALthJRShiYfKANcQMuMqsQ==}
     engines: {node: '>=18'}
 
-  '@navikt/aksel-icons@7.38.0':
-    resolution: {integrity: sha512-v+Kiss6gp/DXlbskkXrzfWUWvFEK+XQuhfauo0CP41JDyKsx3DSPKeB/pxFocio6MXGUNK/QQzjBfMPJh7ESng==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/7.38.0/f21368acbac4d1e28604e774d0b95f50404da561}
+  '@navikt/aksel-icons@7.40.0':
+    resolution: {integrity: sha512-1xuhplMhKCEPn2iMFypMVgkRNxUd5iupQ7HP2itdQCkK3K2mm2b8HsDwL9d7YDWcxowq5ff7ewpKgQFPn6o1UQ==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/7.40.0/16d67c0742bcf2a2c38ad37be6c287765640fd7f}
+
+  '@navikt/aksel-icons@8.0.0':
+    resolution: {integrity: sha512-ODo1iHDJFP8M8pOogxfGq31U/SftVyptO+KJoaris8r6H2F0Q9X+j0dQU+QxTCq459b1MfYhbLVD3JlSzj5FQA==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.0.0/2537878cf1d513ab91e67f269d35484202645bc7}
 
   '@navikt/aksel-stylelint@7.38.0':
     resolution: {integrity: sha512-hb55cRqzAmdgfRTRt9VjRefpuKJwKizZerRPFkpn6mYu6iMjh4KhcU3cE+vPU4BA2uzrpcvdMkRplOAwnN8oKg==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-stylelint/7.38.0/0d44774e9228fb371d945750c2478d1c440d3830}
@@ -2128,7 +2131,9 @@ snapshots:
       outvariant: 1.4.3
       strict-event-emitter: 0.5.1
 
-  '@navikt/aksel-icons@7.38.0': {}
+  '@navikt/aksel-icons@7.40.0': {}
+
+  '@navikt/aksel-icons@8.0.0': {}
 
   '@navikt/aksel-stylelint@7.38.0': {}
 
@@ -2138,7 +2143,7 @@ snapshots:
     dependencies:
       '@floating-ui/react': 0.27.8(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react-dom': 2.1.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@navikt/aksel-icons': 7.38.0
+      '@navikt/aksel-icons': 7.40.0
       '@navikt/ds-tokens': 7.38.0
       '@types/react': 19.2.8
       clsx: 2.1.1
