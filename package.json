@@ -21,7 +21,7 @@
 		"@biomejs/biome": "^2.3.11",
 		"@navikt/aksel-icons": "^7.38.0",
 		"@navikt/aksel-stylelint": "^7.38.0",
-		"@navikt/ds-css": "^7.38.0",
+		"@navikt/ds-css": "^8.0.0",
 		"@navikt/ds-react": "^7.38.0",
 		"@navikt/ds-tokens": "^7.38.0",
 		"@navikt/nav-dekoratoren-moduler": "^3.6.1",
