@@ -1,4 +1,4 @@
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24-slim@sha256:a6ba96187db329d6c4d32c21fd6a89f217139f74712cc33eb85dd700d37d4ab4
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24-slim@sha256:8519acc2254f7d4595ea8dbc8f01ed5c45e5ab97fff96cf04a6cf55d6b06f8f6
 ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
