@@ -15,26 +15,26 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
-		"react-router-dom": "^7.12.0"
+		"react-router-dom": "^7.13.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.3.11",
+		"@biomejs/biome": "^2.3.15",
 		"@navikt/aksel-icons": "^7.38.0",
 		"@navikt/aksel-stylelint": "^7.38.0",
 		"@navikt/ds-css": "^7.38.0",
 		"@navikt/ds-react": "^7.38.0",
 		"@navikt/ds-tokens": "^7.38.0",
-		"@navikt/nav-dekoratoren-moduler": "^3.6.1",
-		"@types/node": "^25.0.9",
+		"@navikt/nav-dekoratoren-moduler": "^3.6.2",
+		"@types/node": "^25.2.3",
 		"@types/react": "^19.2.8",
 		"@types/react-dom": "^19.2.3",
-		"@vitejs/plugin-react": "^5.1.2",
-		"autoprefixer": "^10.4.23",
+		"@vitejs/plugin-react": "^5.1.4",
+		"autoprefixer": "^10.4.24",
 		"date-fns": "^4.1.0",
 		"husky": "^9.1.7",
 		"jsdom": "^27.4.0",
 		"lint-staged": "^16.2.7",
-		"msw": "^2.12.7",
+		"msw": "^2.12.10",
 		"postcss": "^8.5.6",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
