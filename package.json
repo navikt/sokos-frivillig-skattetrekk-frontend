@@ -89,10 +89,9 @@
 		"node": ">=24.13.0"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": [
-			"esbuild",
-			"msw",
-			"protobufjs"
-		]
+		"overrides": {
+			"rollup": ">=4.59.0",
+			"serialize-javascript": ">=7.0.3"
+		}
 	}
 }
