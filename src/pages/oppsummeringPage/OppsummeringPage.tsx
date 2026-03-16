@@ -145,8 +145,8 @@ const InternalOppsummeringPage = ({
 
 	if (isSending) {
 		return (
-			<Box background="bg-subtle" padding="16" borderRadius="large">
-				<VStack align="center" gap="8">
+			<Box background="neutral-soft" padding="space-64" borderRadius="8">
+				<VStack align="center" gap="space-32">
 					<Heading align="center" size={"large"} level="2">
 						Vent mens vi sender inn
 					</Heading>
@@ -158,7 +158,7 @@ const InternalOppsummeringPage = ({
 	}
 
 	return (
-		<VStack gap="12">
+		<VStack gap="space-48">
 			<Heading level="2" size="large">
 				Oppsummering
 			</Heading>
@@ -218,9 +218,8 @@ const InternalOppsummeringPage = ({
 					</FormSummary.Answer>
 				</FormSummary.Answers>
 			</FormSummary>
-
-			<VStack gap="6">
-				<HStack gap="2">
+			<VStack gap="space-24">
+				<HStack gap="space-8">
 					<Button
 						variant="secondary"
 						size={"medium"}
@@ -238,7 +237,7 @@ const InternalOppsummeringPage = ({
 						Registrer{" "}
 					</Button>
 				</HStack>
-				<HStack gap="2">
+				<HStack gap="space-8">
 					<Button
 						variant="tertiary"
 						size={"medium"}

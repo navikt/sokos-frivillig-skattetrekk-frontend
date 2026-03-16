@@ -59,14 +59,14 @@ function DataContextProvider(props: DataContextProviderProps) {
 					<Box
 						id="data-context-overlay"
 						position="absolute"
-						left="0"
-						right="0"
-						top="0"
-						bottom="0"
-						background="bg-default"
+						left="space-0"
+						right="space-0"
+						top="space-0"
+						bottom="space-0"
+						background="default"
 					>
-						<Box background="bg-subtle" padding="16" borderRadius="large">
-							<VStack align="center" gap="20">
+						<Box background="neutral-soft" padding="space-64" borderRadius="8">
+							<VStack align="center" gap="space-80">
 								<Loader size="3xlarge" />
 								<BodyShort align="center">
 									{"Vent mens vi laster inn siden."}

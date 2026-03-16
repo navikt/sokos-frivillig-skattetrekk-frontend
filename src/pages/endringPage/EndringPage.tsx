@@ -142,7 +142,7 @@ export const EndringPage = () => {
 
 	if (pageState === "cannotProceed") {
 		return (
-			<VStack gap="8" className="form-container">
+			<VStack gap="space-32" className="form-container">
 				<Heading level="2" size="medium">
 					Du kan ikke registrere frivillig skattetrekk i denne tjenesten
 				</Heading>
@@ -159,7 +159,7 @@ export const EndringPage = () => {
 					<Heading level="3" size="small">
 						Barnepensjon
 					</Heading>
-					<VStack gap="4">
+					<VStack gap="space-16">
 						<BodyLong>
 							Frivillig skattetrekk på barnepensjon kan dessverre ikke
 							registreres i denne tjenesten.
@@ -174,8 +174,7 @@ export const EndringPage = () => {
 						</Link>
 					</VStack>
 				</VStack>
-
-				<HStack gap="2">
+				<HStack gap="space-8">
 					<Button
 						variant="secondary"
 						size={"medium"}
@@ -196,10 +195,9 @@ export const EndringPage = () => {
 	}
 
 	return (
-		<VStack gap="12">
+		<VStack gap="space-48">
 			<BodyLong> Alle spørsmål må besvares. </BodyLong>
-
-			<VStack gap={"6"}>
+			<VStack gap={"space-24"}>
 				<Heading level="2" size="medium">
 					Dette registrerer du frivillig skattetrekk på her:
 				</Heading>
@@ -234,9 +232,8 @@ export const EndringPage = () => {
 				<Radio value="true">Ja</Radio>
 				<Radio value="false">Nei</Radio>
 			</RadioGroup>
-
 			{canContinue && (
-				<VStack gap="6">
+				<VStack gap="space-24">
 					<div>
 						<Heading size={"medium"} level={"2"}>
 							Ønsket frivillig skattetrekk
@@ -308,8 +305,8 @@ export const EndringPage = () => {
 					htmlSize={30}
 				/>
 			)}
-			<VStack gap={"4"}>
-				<HStack gap="2">
+			<VStack gap={"space-16"}>
+				<HStack gap="space-8">
 					<Button
 						variant="secondary"
 						size={"medium"}

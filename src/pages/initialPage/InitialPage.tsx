@@ -56,7 +56,7 @@ export function InitialPage() {
 
 	if (document.cookie.includes("nav-obo=")) {
 		return (
-			<VStack gap="6">
+			<VStack gap="space-24">
 				{guidePanel()}
 				<Alert variant={"info"}>
 					<Heading spacing size="small" level="2">
@@ -79,7 +79,7 @@ export function InitialPage() {
 		)
 	) {
 		return (
-			<VStack gap="6">
+			<VStack gap="space-24">
 				{guidePanel()}
 				<Alert variant="warning">
 					<Heading spacing size="small" level="2">
@@ -104,13 +104,13 @@ export function InitialPage() {
 	}
 
 	return (
-		<VStack gap="12">
-			<VStack gap="10">
+		<VStack gap="space-48">
+			<VStack gap="space-40">
 				{guidePanel()}
 
 				{isDecember() && (
 					<Alert variant={"info"}>
-						<VStack gap="5">
+						<VStack gap="space-20">
 							<BodyLong>
 								{" "}
 								Frivillig skattetrekk du legger inn nå, vil gjelde for{" "}
@@ -127,7 +127,7 @@ export function InitialPage() {
 				)}
 
 				{getResponse?.data && (
-					<VStack gap={"4"}>
+					<VStack gap={"space-16"}>
 						<Heading size={"medium"} level="2">
 							Dine registrerte skattetrekk
 						</Heading>
@@ -193,7 +193,7 @@ export function InitialPage() {
 								Dette registrerer du frivillig skattetrekk på her:
 							</Accordion.Header>
 							<Accordion.Content>
-								<VStack gap="4">
+								<VStack gap="space-16">
 									<List>
 										<List.Item>Arbeidsavklaringspenger (AAP)</List.Item>
 										<List.Item>Dagpenger</List.Item>

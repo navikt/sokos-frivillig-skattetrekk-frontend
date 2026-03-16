@@ -11,7 +11,7 @@ export function App() {
 	return (
 		<div className="mainBody">
 			<main id="maincontent" tabIndex={-1}>
-				<VStack gap="14" className="contentWrapper">
+				<VStack gap="space-56" className="contentWrapper">
 					<Heading size={"xlarge"} level={"1"}>
 						Frivillig skattetrekk
 					</Heading>

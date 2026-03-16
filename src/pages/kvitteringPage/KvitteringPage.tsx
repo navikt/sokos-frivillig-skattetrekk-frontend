@@ -58,8 +58,8 @@ export const KvitteringPage = () => {
 
 	if (getLoaderOverride) {
 		return (
-			<Box background="bg-subtle" padding="16" borderRadius="large">
-				<VStack align="center" gap="8">
+			<Box background="neutral-soft" padding="space-64" borderRadius="8">
+				<VStack align="center" gap="space-32">
 					<Heading align="center" size={"large"} level="2">
 						Vent mens vi sender inn
 					</Heading>
@@ -76,9 +76,9 @@ export const KvitteringPage = () => {
 		)
 	) {
 		return (
-			<VStack gap="6" className="form-container">
+			<VStack gap="space-24" className="form-container">
 				<Alert variant="error">
-					<VStack gap="3">
+					<VStack gap="space-12">
 						Det har skjedd en teknisk feil. Hvis du har registrert informasjon,
 						har den dessverre ikke blitt lagret. Vi beklager for dette. Du kan
 						prøve igjen senere. Ta gjerne kontakt med oss hvis problemet
@@ -90,9 +90,9 @@ export const KvitteringPage = () => {
 	}
 
 	return (
-		<VStack gap="10" className="form-container">
+		<VStack gap="space-40" className="form-container">
 			<Alert variant="success">
-				<VStack gap="3">
+				<VStack gap="space-12">
 					<Heading level="2" size="small">
 						{visRiktigNyregistertTilleggstrekk(getResponse.data)}
 					</Heading>
@@ -109,7 +109,7 @@ export const KvitteringPage = () => {
 
 			<div id="kvittering-divider" />
 
-			<VStack gap="4">
+			<VStack gap="space-16">
 				<Link href="https://www.nav.no/minside" target="_blank">
 					Gå til Min side{" "}
 				</Link>
