@@ -21,7 +21,7 @@ export function StopTilleggstrekkConfirmationModal() {
 
 	return (
 		<>
-			<HStack gap="6">
+			<HStack gap="space-24">
 				<Button type="button" onClick={() => setOpen(true)} variant="secondary">
 					Stopp frivillig skattetrekk
 				</Button>

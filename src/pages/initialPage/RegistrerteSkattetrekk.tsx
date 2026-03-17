@@ -18,7 +18,7 @@ type RegistrerteSkattetrekkProps = {
 
 export function RegistrerteSkattetrekk(props: RegistrerteSkattetrekkProps) {
 	return (
-		<VStack gap="6">
+		<VStack gap="space-24">
 			{props.fremtidigTilleggstrekk !== null &&
 				props.fremtidigTilleggstrekk!.sats! > 0 && (
 					<Alert variant="info">

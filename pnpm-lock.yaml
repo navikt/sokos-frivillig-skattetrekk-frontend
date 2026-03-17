@@ -20,20 +20,20 @@ importers:
         specifier: ^2.4.6
         version: 2.4.6
       '@navikt/aksel-icons':
-        specifier: ^7.38.0
-        version: 7.38.0
+        specifier: ^8.7.0
+        version: 8.7.0
       '@navikt/aksel-stylelint':
-        specifier: ^7.38.0
-        version: 7.38.0
+        specifier: ^8.7.0
+        version: 8.7.0
       '@navikt/ds-css':
-        specifier: ^7.38.0
-        version: 7.38.0
+        specifier: ^8.7.0
+        version: 8.7.0
       '@navikt/ds-react':
-        specifier: ^7.38.0
-        version: 7.38.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ^8.7.0
+        version: 8.7.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@navikt/ds-tokens':
-        specifier: ^7.38.0
-        version: 7.38.0
+        specifier: ^8.7.0
+        version: 8.7.0
       '@navikt/nav-dekoratoren-moduler':
         specifier: ^3.6.2
         version: 3.6.2(csp-header@6.1.0)(html-react-parser@5.2.6(@types/react@19.2.14)(react@19.2.4))(jsdom@28.1.0)(react@19.2.4)
@@ -212,24 +212,28 @@ packages:
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@biomejs/cli-linux-arm64@2.4.6':
     resolution: {integrity: sha512-kMLaI7OF5GN1Q8Doymjro1P8rVEoy7BKQALNz6fiR8IC1WKduoNyteBtJlHT7ASIL0Cx2jR6VUOBIbcB1B8pew==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@biomejs/cli-linux-x64-musl@2.4.6':
     resolution: {integrity: sha512-C9s98IPDu7DYarjlZNuzJKTjVHN03RUnmHV5htvqsx6vEUXCDSJ59DNwjKVD5XYoSS4N+BYhq3RTBAL8X6svEg==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@biomejs/cli-linux-x64@2.4.6':
     resolution: {integrity: sha512-oHXmUFEoH8Lql1xfc3QkFLiC1hGR7qedv5eKNlC185or+o4/4HiaU7vYODAH3peRCfsuLr1g6v2fK9dFFOYdyw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@biomejs/cli-win32-arm64@2.4.6':
     resolution: {integrity: sha512-xzThn87Pf3YrOGTEODFGONmqXpTwUNxovQb72iaUOdcw8sBSY3+3WD8Hm9IhMYLnPi0n32s3L3NWU6+eSjfqFg==}
@@ -567,24 +571,28 @@ packages:
     resolution: {integrity: sha512-cXu86tF4VQVfwz8W1SPbhoRyHJkti6mjH/XJIxp40jhO4j2k1m4KYrEykxqWPkFF3vrK4rgQppBh//AwyGSXPA==}
     engines: {node: '>=18'}
 
-  '@navikt/aksel-icons@7.38.0':
-    resolution: {integrity: sha512-v+Kiss6gp/DXlbskkXrzfWUWvFEK+XQuhfauo0CP41JDyKsx3DSPKeB/pxFocio6MXGUNK/QQzjBfMPJh7ESng==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/7.38.0/f21368acbac4d1e28604e774d0b95f50404da561}
+  '@navikt/aksel-icons@8.7.0':
+    resolution: {integrity: sha512-pANfaE/xr2a9Q3CYMWbCjhAk9+UNuUa50Ez37Zk2nZQYtjP1vLXluOgHrxGAGTs6T4ToE+IjtJdU9DoEBnBbdw==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.7.0/71371b0ac52d8760340b655f20580faeb47a2fb5}
 
-  '@navikt/aksel-stylelint@7.38.0':
-    resolution: {integrity: sha512-hb55cRqzAmdgfRTRt9VjRefpuKJwKizZerRPFkpn6mYu6iMjh4KhcU3cE+vPU4BA2uzrpcvdMkRplOAwnN8oKg==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-stylelint/7.38.0/0d44774e9228fb371d945750c2478d1c440d3830}
+  '@navikt/aksel-stylelint@8.7.0':
+    resolution: {integrity: sha512-dV4umuwiBrSruRHgLBcqawO7igcknwSR/dHHXvzom/MlmNfimG3REY6vtDE7AruRPjktu1ty1SzPjKs/5kvusQ==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-stylelint/8.7.0/44c455a849e4c03cbda4739a46006a6e6ff6a089}
+    engines: {node: '>=18.12.0'}
 
-  '@navikt/ds-css@7.38.0':
-    resolution: {integrity: sha512-51dvtPgFHcfkKpnJ9fcwHJsfiyZuRsWaawSHxxv7jyXQkDTl8YEsZ0a31gAozgp2CW3wHJBDCSehC89Z9X4x8A==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/7.38.0/a150b0a282f19f2ba5c583406635fda7f4e4924a}
+  '@navikt/ds-css@8.7.0':
+    resolution: {integrity: sha512-kYeaCPcaNEvXixA7upGOpi3hWCvT1fZcL1arRJHSOZJf5uXm5b3Wey+WL9+5zLE7M90q6jsV/vGy4E370ZoWmg==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/8.7.0/353215289ac1a756ed37dc54379b7a501fc84a28}
 
-  '@navikt/ds-react@7.38.0':
-    resolution: {integrity: sha512-i/7lTbIvQ8ddw6TPXEAkrXmIM70haXyig+upB3M5mR8Vbl+DinJmUISBuzvaafWaj//2A5iWmwM9j577PrOKVw==, tarball: https://npm.pkg.github.com/download/@navikt/ds-react/7.38.0/cd426d7d27b652e85f9b511b46539b87c74f7e58}
+  '@navikt/ds-react@8.7.0':
+    resolution: {integrity: sha512-hb0Ah4By9H+9RH88UUudQ6onKK59V8Qe9JnHwk7RSWHJrgLhTa4wm3uSf0o08oqxp08/AiAYS5YPl0NUPf83gA==, tarball: https://npm.pkg.github.com/download/@navikt/ds-react/8.7.0/6961196212e6e8eca21fba86926327a5ad8ab074}
     peerDependencies:
       '@types/react': ^17.0.30 || ^18 || ^19
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
-  '@navikt/ds-tokens@7.38.0':
-    resolution: {integrity: sha512-4U3ozOfRap+9PcsQu1G96sZu4tQaYY2/eBil1Viqyqm+VvSNTJ4sEmDM9qUqOysEZl/8PKHHlegy0W9aDo/iag==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/7.38.0/d98840acd074278426e3cbe2f767e3841d8b6bd6}
+  '@navikt/ds-tokens@8.7.0':
+    resolution: {integrity: sha512-YEeAzjJNFXwTrx2R9xf4Sue/sTCLaygFlJ0MVgje8Q5KzLiQSaVoK6gIGZHZ4wHVU6Q1uOAlIkdaHKlPvCfu7A==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/8.7.0/17a22dcaa2107ac81431db172701e0debe4e3fe3}
 
   '@navikt/nav-dekoratoren-moduler@3.6.2':
     resolution: {integrity: sha512-863vAyH9VjmRi8q4Aci4RQ3MaOG5faupzOD77IyhhTUmlyIxRw62jngX2j8c7wjavwwalhNnmie226NjYoNxjQ==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.6.2/70dac085c605d0299f03a122646aecefea764d30}
@@ -594,6 +602,9 @@ packages:
       html-react-parser: '>=5.x'
       jsdom: '>=16.x'
       react: '>=17.x'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -653,66 +664,79 @@ packages:
     resolution: {integrity: sha512-t4ONHboXi/3E0rT6OZl1pKbl2Vgxf9vJfWgmUoCEVQVxhW6Cw/c8I6hbbu7DAvgp82RKiH7TpLwxnJeKv2pbsw==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.59.0':
     resolution: {integrity: sha512-CikFT7aYPA2ufMD086cVORBYGHffBo4K8MQ4uPS/ZnY54GKj36i196u8U+aDVT2LX4eSMbyHtyOh7D7Zvk2VvA==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.59.0':
     resolution: {integrity: sha512-jYgUGk5aLd1nUb1CtQ8E+t5JhLc9x5WdBKew9ZgAXg7DBk0ZHErLHdXM24rfX+bKrFe+Xp5YuJo54I5HFjGDAA==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.59.0':
     resolution: {integrity: sha512-peZRVEdnFWZ5Bh2KeumKG9ty7aCXzzEsHShOZEFiCQlDEepP1dpUl/SrUNXNg13UmZl+gzVDPsiCwnV1uI0RUA==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-loong64-gnu@4.59.0':
     resolution: {integrity: sha512-gbUSW/97f7+r4gHy3Jlup8zDG190AuodsWnNiXErp9mT90iCy9NKKU0Xwx5k8VlRAIV2uU9CsMnEFg/xXaOfXg==}
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-loong64-musl@4.59.0':
     resolution: {integrity: sha512-yTRONe79E+o0FWFijasoTjtzG9EBedFXJMl888NBEDCDV9I2wGbFFfJQQe63OijbFCUZqxpHz1GzpbtSFikJ4Q==}
     cpu: [loong64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-ppc64-gnu@4.59.0':
     resolution: {integrity: sha512-sw1o3tfyk12k3OEpRddF68a1unZ5VCN7zoTNtSn2KndUE+ea3m3ROOKRCZxEpmT9nsGnogpFP9x6mnLTCaoLkA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-ppc64-musl@4.59.0':
     resolution: {integrity: sha512-+2kLtQ4xT3AiIxkzFVFXfsmlZiG5FXYW7ZyIIvGA7Bdeuh9Z0aN4hVyXS/G1E9bTP/vqszNIN/pUKCk/BTHsKA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-riscv64-gnu@4.59.0':
     resolution: {integrity: sha512-NDYMpsXYJJaj+I7UdwIuHHNxXZ/b/N2hR15NyH3m2qAtb/hHPA4g4SuuvrdxetTdndfj9b1WOmy73kcPRoERUg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.59.0':
     resolution: {integrity: sha512-nLckB8WOqHIf1bhymk+oHxvM9D3tyPndZH8i8+35p/1YiVoVswPid2yLzgX7ZJP0KQvnkhM4H6QZ5m0LzbyIAg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.59.0':
     resolution: {integrity: sha512-oF87Ie3uAIvORFBpwnCvUzdeYUqi2wY6jRFWJAy1qus/udHFYIkplYRW+wo+GRUP4sKzYdmE1Y3+rY5Gc4ZO+w==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     resolution: {integrity: sha512-3AHmtQq/ppNuUspKAlvA8HtLybkDflkMuLK4DPo77DfthRb71V84/c4MlWJXixZz4uruIH4uaa07IqoAkG64fg==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.59.0':
     resolution: {integrity: sha512-2UdiwS/9cTAx7qIUZB/fWtToJwvt0Vbo0zmnYt7ED35KPg13Q0ym1g442THLC7VyI6JfYTP4PiSOWyoMdV2/xg==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-openbsd-x64@4.59.0':
     resolution: {integrity: sha512-M3bLRAVk6GOwFlPTIxVBSYKUaqfLrn8l0psKinkCFxl4lQvOSz8ZrKDz2gxcBwHFpci0B6rttydI4IpS4IS/jQ==}
@@ -869,10 +893,6 @@ packages:
   cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
-
-  clsx@2.1.1:
-    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
-    engines: {node: '>=6'}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -2155,26 +2175,26 @@ snapshots:
       outvariant: 1.4.3
       strict-event-emitter: 0.5.1
 
-  '@navikt/aksel-icons@7.38.0': {}
+  '@navikt/aksel-icons@8.7.0': {}
 
-  '@navikt/aksel-stylelint@7.38.0': {}
+  '@navikt/aksel-stylelint@8.7.0': {}
 
-  '@navikt/ds-css@7.38.0': {}
+  '@navikt/ds-css@8.7.0': {}
 
-  '@navikt/ds-react@7.38.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@navikt/ds-react@8.7.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@floating-ui/react': 0.27.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@floating-ui/react-dom': 2.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@navikt/aksel-icons': 7.38.0
-      '@navikt/ds-tokens': 7.38.0
-      '@types/react': 19.2.14
-      clsx: 2.1.1
+      '@navikt/aksel-icons': 8.7.0
+      '@navikt/ds-tokens': 8.7.0
       date-fns: 4.1.0
       react: 19.2.4
       react-day-picker: 9.7.0(react@19.2.4)
       react-dom: 19.2.4(react@19.2.4)
+    optionalDependencies:
+      '@types/react': 19.2.14
 
-  '@navikt/ds-tokens@7.38.0': {}
+  '@navikt/ds-tokens@8.7.0': {}
 
   '@navikt/nav-dekoratoren-moduler@3.6.2(csp-header@6.1.0)(html-react-parser@5.2.6(@types/react@19.2.14)(react@19.2.4))(jsdom@28.1.0)(react@19.2.4)':
     dependencies:
@@ -2182,6 +2202,7 @@ snapshots:
       html-react-parser: 5.2.6(@types/react@19.2.14)(react@19.2.4)
       js-cookie: 3.0.5
       jsdom: 28.1.0
+    optionalDependencies:
       react: 19.2.4
 
   '@nodelib/fs.scandir@2.1.5':
@@ -2417,8 +2438,6 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
-
-  clsx@2.1.1: {}
 
   color-convert@2.0.1:
     dependencies:
