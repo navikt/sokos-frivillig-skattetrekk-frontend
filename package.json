@@ -18,7 +18,7 @@
 		"react-router-dom": "^7.13.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.7",
+		"@biomejs/biome": "^2.4.8",
 		"@navikt/aksel-icons": "^8.7.0",
 		"@navikt/aksel-stylelint": "^8.7.0",
 		"@navikt/ds-css": "^8.7.0",
@@ -34,7 +34,7 @@
 		"husky": "^9.1.7",
 		"jsdom": "^28.1.0",
 		"lint-staged": "^16.4.0",
-		"msw": "^2.12.11",
+		"msw": "^2.12.14",
 		"postcss": "^8.5.8",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
