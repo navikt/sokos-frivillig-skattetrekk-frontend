@@ -15,16 +15,16 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
-		"react-router-dom": "^7.13.1"
+		"react-router-dom": "^7.13.2"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.8",
+		"@biomejs/biome": "^2.4.9",
 		"@navikt/aksel-icons": "^8.8.0",
 		"@navikt/aksel-stylelint": "^8.8.0",
 		"@navikt/ds-css": "^8.8.0",
 		"@navikt/ds-react": "^8.8.0",
 		"@navikt/ds-tokens": "^8.8.0",
-		"@navikt/nav-dekoratoren-moduler": "^3.6.3",
+		"@navikt/nav-dekoratoren-moduler": "^3.7.0",
 		"@types/node": "^25.5.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
