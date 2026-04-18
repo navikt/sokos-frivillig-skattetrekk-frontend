@@ -89,10 +89,6 @@
 		"node": ">=24.13.0"
 	},
 	"pnpm": {
-		"overrides": {
-			"flatted": ">=3.4.2",
-			"picomatch": ">=4.0.4",
-			"undici": ">=7.24.0"
-		}
+		"overrides": {}
 	}
 }
