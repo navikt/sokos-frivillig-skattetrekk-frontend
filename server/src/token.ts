@@ -1,6 +1,6 @@
 import { getToken, requestOboToken, validateToken } from "@navikt/oasis";
 import type { Request } from "express";
-import { logger } from "./logger";
+import { logger } from "./logger.ts";
 
 async function getRequiredToken(req: Request): Promise<string> {
 	if (process.env.NODE_ENV !== "production") {

@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { logger } from "./logger";
-import { getOboToken } from "./token";
+import { logger } from "./logger.ts";
+import { getOboToken } from "./token.ts";
 
 export async function proxyRoutes(
 	req: Request,

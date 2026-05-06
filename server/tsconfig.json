@@ -3,12 +3,13 @@
 		"outDir": "build",
 		"rootDir": "./src",
 		"target": "ESNext",
-		"module": "CommonJS",
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 		"strict": true,
+		"noUncheckedIndexedAccess": true,
 		"skipLibCheck": true,
-		"typeRoots": ["../node_modules/@types"]
+		"rewriteRelativeImportExtensions": true,
+		"allowImportingTsExtensions": true
 	},
 	"include": ["./src"]
 }
