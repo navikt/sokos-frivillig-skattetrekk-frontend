@@ -64,7 +64,7 @@ server.get(`${BASE_PATH}/internal/isReady`, (_req: Request, res: Response) => {
 	res.sendStatus(200);
 });
 
-server.use((err: Error, _req: Request, res: Response) => {
+server.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 	logger.error({ err }, "Request error occurred");
 
 	res.status(500).json({
