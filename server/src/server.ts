@@ -5,11 +5,11 @@ import express, {
 	type Response,
 } from "express";
 import expressStaticGzip from "express-static-gzip";
-import { logger } from "./logger";
-import { proxyRoutes } from "./proxy";
+import { logger } from "./logger.ts";
+import { proxyRoutes } from "./proxy.ts";
 
 const BASE_PATH = "/utbetalinger/frivillig-skattetrekk";
-const BUILD_PATH = path.resolve(__dirname, "../dist");
+const BUILD_PATH = path.resolve(import.meta.dirname, "../dist");
 const PORT = process.env.PORT || 8080;
 const SOKOS_FRIVILLIG_SKATTETREKK_BACKEND = process.env.SKATTETREKK_BACKEND_URL;
 
@@ -26,7 +26,6 @@ server.use(
 	}),
 );
 
-// AsyncHandler - wraps async functions and catches errors automatically
 function asyncHandler(
 	fn: (req: Request, res: Response, next: NextFunction) => Promise<unknown>,
 ) {
@@ -35,7 +34,6 @@ function asyncHandler(
 	};
 }
 
-// Using asyncHandler - no more try/catch needed!
 server.get(
 	`${BASE_PATH}/api/skattetrekk`,
 	asyncHandler(async (req: Request, res: Response) => {
@@ -66,13 +64,11 @@ server.get(`${BASE_PATH}/internal/isReady`, (_req: Request, res: Response) => {
 	res.sendStatus(200);
 });
 
-// Global error handler
 server.use((err: Error, _req: Request, res: Response) => {
 	logger.error({ err }, "Request error occurred");
 
 	res.status(500).json({
 		message: err.message,
-		// Only include stack trace in development
 		...(process.env.NODE_ENV !== "production" && { stack: err.stack }),
 	});
 });

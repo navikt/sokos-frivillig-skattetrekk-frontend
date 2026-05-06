@@ -10,7 +10,7 @@ const buildConfig: UserConfig = {
 	build: {
 		outDir: "./dist",
 		target: "esnext",
-		rollupOptions: {
+		rolldownOptions: {
 			input: {
 				appBorger: "./index.html",
 			},
@@ -31,7 +31,7 @@ export default defineConfig(({ command, mode }) => {
 			base: basePath,
 			build: {
 				manifest: true,
-				rollupOptions: {
+				rolldownOptions: {
 					input: {
 						appBorger: "./index.html",
 					},
