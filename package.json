@@ -18,7 +18,7 @@
 		"react-router-dom": "7.14.2"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.13",
+		"@biomejs/biome": "2.4.14",
 		"@navikt/aksel-icons": "8.10.3",
 		"@navikt/aksel-stylelint": "8.10.3",
 		"@navikt/ds-css": "8.10.3",
@@ -34,11 +34,11 @@
 		"husky": "9.1.7",
 		"jsdom": "29.1.1",
 		"lint-staged": "16.4.0",
-		"msw": "2.14.2",
-		"postcss": "8.5.12",
+		"msw": "2.14.3",
+		"postcss": "8.5.14",
 		"react": "19.2.5",
 		"react-dom": "19.2.5",
-		"stylelint": "17.9.1",
+		"stylelint": "17.11.0",
 		"stylelint-config-standard": "40.0.0",
 		"typescript": "6.0.3",
 		"vite": "8.0.10"
