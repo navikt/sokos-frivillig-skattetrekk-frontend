@@ -1,0 +1,9 @@
+# pnpm settings for the root project (the client/Vite app).
+# Settings apply ONLY to the root install (`pnpm install` at repo root).
+# Server-specific overrides live in server/pnpm-workspace.yaml and are NOT inherited.
+
+overrides: {}
+engineStrict: true
+saveExact: true
+ignoreScripts: true
+minimumReleaseAge: 10080
