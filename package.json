@@ -16,31 +16,31 @@
 		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs"
   },
   "dependencies": {
-    "react-router-dom": "7.14.2"
+    "react-router-dom": "7.15.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.13",
+    "@biomejs/biome": "2.4.15",
     "@navikt/aksel-icons": "8.10.5",
     "@navikt/aksel-stylelint": "8.10.5",
     "@navikt/ds-css": "8.10.5",
     "@navikt/ds-react": "8.10.5",
     "@navikt/ds-tokens": "8.10.5",
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
-    "@types/node": "25.6.0",
+    "@types/node": "25.8.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.1",
+    "@vitejs/plugin-react": "6.0.2",
     "date-fns": "4.1.0",
     "husky": "9.1.7",
     "jsdom": "29.1.1",
     "lint-staged": "16.4.0",
-    "msw": "2.14.2",
+    "msw": "2.14.6",
     "react": "19.2.5",
     "react-dom": "19.2.5",
-    "stylelint": "17.9.1",
+    "stylelint": "17.11.1",
     "stylelint-config-standard": "40.0.0",
     "typescript": "6.0.3",
-    "vite": "8.0.10"
+    "vite": "8.0.13"
   },
   "msw": {
     "workerDirectory": [
