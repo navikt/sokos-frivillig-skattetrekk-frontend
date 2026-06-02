@@ -21,12 +21,6 @@ const startMsw = async () => {
 startMsw().then(() =>
 	ReactDOM.createRoot(document.getElementById("root")!).render(
 		<React.StrictMode>
-			<div className="microfrontend-container">
-				<representasjon-banner
-					representasjonstyper=""
-					redirectTo={`${window.location.origin}/utbetalinger/frivillig-skattetrekk/`}
-				></representasjon-banner>
-			</div>
 			<App />
 		</React.StrictMode>,
 	),
