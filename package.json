@@ -1,78 +1,78 @@
 {
-  "name": "sokos-frivillig-skattetrekk-frontend",
-  "version": "1.0.0",
-  "description": "Frontend for frivillig skattetrekk for skattepliktige ytelser",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --mode mock",
-    "dev:backend": "vite --port 3000",
-    "build:development": "tsc && vite build --mode development",
-    "build:production": "tsc && vite build --mode production",
-    "biome:check": "biome check --files-ignore-unknown=true",
-    "biome:fix": "biome check --write --no-errors-on-unmatched",
-    "stylelint:check": "stylelint '**/*.css'",
-    "stylelint:fix": "stylelint '**/*.css' --fix",
-    "prepare": "husky",
+	"name": "sokos-frivillig-skattetrekk-frontend",
+	"version": "1.0.0",
+	"description": "Frontend for frivillig skattetrekk for skattepliktige ytelser",
+	"type": "module",
+	"scripts": {
+		"dev": "vite --mode mock",
+		"dev:backend": "vite --port 3000",
+		"build:development": "tsc && vite build --mode development",
+		"build:production": "tsc && vite build --mode production",
+		"biome:check": "biome check --files-ignore-unknown=true",
+		"biome:fix": "biome check --write --no-errors-on-unmatched",
+		"stylelint:check": "stylelint '**/*.css'",
+		"stylelint:fix": "stylelint '**/*.css' --fix",
+		"prepare": "husky",
 		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs"
-  },
-  "dependencies": {
-    "react-router-dom": "7.16.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.4.16",
-    "@navikt/aksel-icons": "8.11.1",
-    "@navikt/aksel-stylelint": "8.11.1",
-    "@navikt/ds-css": "8.11.1",
-    "@navikt/ds-react": "8.11.1",
-    "@navikt/ds-tokens": "8.11.1",
-    "@navikt/nav-dekoratoren-moduler": "4.2.1",
-    "@types/node": "25.9.1",
-    "@types/react": "19.2.16",
-    "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.2",
-    "date-fns": "4.4.0",
-    "husky": "9.1.7",
-    "jsdom": "29.1.1",
-    "lint-staged": "17.0.7",
-    "msw": "2.14.6",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "stylelint": "17.12.0",
-    "stylelint-config-standard": "40.0.0",
-    "typescript": "6.0.3",
-    "vite": "8.0.15"
-  },
-  "msw": {
-    "workerDirectory": [
-      "public"
-    ]
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard",
-      "@navikt/aksel-stylelint/recommended"
-    ],
-    "rules": {
-      "aksel/design-token-no-global-override": [
-        true,
-        {
-          "severity": "warning"
-        }
-      ],
-      "selector-class-pattern": null
-    },
-    "ignoreFiles": [
-      "dist/**/*",
-      "playwright-report/**/*"
-    ]
-  },
-  "lint-staged": {
-    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": "biome check --write --no-errors-on-unmatched",
-    "*.css": "stylelint --fix"
-  },
+	},
+	"dependencies": {
+		"react-router-dom": "7.16.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.16",
+		"@navikt/aksel-icons": "8.11.1",
+		"@navikt/aksel-stylelint": "8.11.1",
+		"@navikt/ds-css": "8.11.1",
+		"@navikt/ds-react": "8.11.1",
+		"@navikt/ds-tokens": "8.11.1",
+		"@navikt/nav-dekoratoren-moduler": "4.2.1",
+		"@types/node": "25.9.1",
+		"@types/react": "19.2.16",
+		"@types/react-dom": "19.2.3",
+		"@vitejs/plugin-react": "6.0.2",
+		"date-fns": "4.4.0",
+		"husky": "9.1.7",
+		"jsdom": "29.1.1",
+		"lint-staged": "17.0.7",
+		"msw": "2.14.6",
+		"react": "19.2.7",
+		"react-dom": "19.2.7",
+		"stylelint": "17.12.0",
+		"stylelint-config-standard": "40.0.0",
+		"typescript": "6.0.3",
+		"vite": "8.0.16"
+	},
+	"msw": {
+		"workerDirectory": [
+			"public"
+		]
+	},
+	"stylelint": {
+		"extends": [
+			"stylelint-config-standard",
+			"@navikt/aksel-stylelint/recommended"
+		],
+		"rules": {
+			"aksel/design-token-no-global-override": [
+				true,
+				{
+					"severity": "warning"
+				}
+			],
+			"selector-class-pattern": null
+		},
+		"ignoreFiles": [
+			"dist/**/*",
+			"playwright-report/**/*"
+		]
+	},
+	"lint-staged": {
+		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": "biome check --write --no-errors-on-unmatched",
+		"*.css": "stylelint --fix"
+	},
 	"engines": {
-		"pnpm": ">=11.1.2",
+		"pnpm": ">=11.5.3",
 		"node": ">=24.14.1"
 	},
-	"packageManager": "pnpm@11.1.2+sha512.415a1cc25974731e75455c1468371be74c5aa5fb7621b50d4056d222451609f11412f23fd602e6169f1e060466641f798597e1be961a10688836a67b16569499"
+	"packageManager": "pnpm@11.5.3+sha512.7ac1c919341c213a34dc0d02afb7143c5c26ac26ee8c4782deea821b8ac64d2134a081fd8941dae6e29bbb48f58dfc2b7fbceeccc07cb2f09d219d342a4969ed"
 }
