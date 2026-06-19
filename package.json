@@ -16,7 +16,7 @@
 		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs"
 	},
 	"dependencies": {
-		"react-router-dom": "7.16.0"
+		"react-router-dom": "7.17.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.16",
@@ -25,9 +25,9 @@
 		"@navikt/ds-css": "8.11.1",
 		"@navikt/ds-react": "8.11.1",
 		"@navikt/ds-tokens": "8.11.1",
-		"@navikt/nav-dekoratoren-moduler": "4.2.1",
-		"@types/node": "25.9.1",
-		"@types/react": "19.2.16",
+		"@navikt/nav-dekoratoren-moduler": "4.2.2",
+		"@types/node": "25.9.3",
+		"@types/react": "19.2.17",
 		"@types/react-dom": "19.2.3",
 		"@vitejs/plugin-react": "6.0.2",
 		"date-fns": "4.4.0",
@@ -37,7 +37,7 @@
 		"msw": "2.14.6",
 		"react": "19.2.7",
 		"react-dom": "19.2.7",
-		"stylelint": "17.12.0",
+		"stylelint": "17.13.0",
 		"stylelint-config-standard": "40.0.0",
 		"typescript": "6.0.3",
 		"vite": "8.0.16"
