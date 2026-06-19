@@ -3,8 +3,10 @@
 # Server-specific overrides live in server/pnpm-workspace.yaml and are NOT inherited.
 
 overrides:
-  js-yaml: 4.2.0
+  undici: 8.5.0
 engineStrict: true
 saveExact: true
 ignoreScripts: true
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - undici@8.5.0

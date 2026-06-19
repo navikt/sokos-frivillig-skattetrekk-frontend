@@ -30,7 +30,7 @@ jobs:
       contents: read
       id-token: write
     name: Build application & build/push dev image
-    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@dac7a1ac47e76110d90af301b2152057c215c867 # ratchet:navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@v1.0.0
     secrets: inherit
     with:
       app-build-command: pnpm run build:development
@@ -43,7 +43,7 @@ jobs:
       id-token: write
     needs: [build-push-image-q2]
     name: Build application & build/push prod image
-    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@dac7a1ac47e76110d90af301b2152057c215c867 # ratchet:navikt/mob-gha-workflows/.github/workflows/node-build-push-image.yaml@v1.0.0
     secrets: inherit
     with:
       app-build-command: pnpm run build:production
@@ -57,7 +57,7 @@ jobs:
       deployments: write
     needs: [build-push-image-q2]
     name: Deploy to dev-gcp-q2
-    uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@dac7a1ac47e76110d90af301b2152057c215c867 # ratchet:navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@v1.0.0
     with:
       cluster: dev-gcp
       resource: .nais/naiserator-q2.yaml
@@ -71,7 +71,7 @@ jobs:
       deployments: write
     needs: [build-push-image-prod, deploy-q2]
     name: Deploy to prod-gcp
-    uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@main
+    uses: navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@dac7a1ac47e76110d90af301b2152057c215c867 # ratchet:navikt/mob-gha-workflows/.github/workflows/nais-deploy.yaml@v1.0.0
     with:
       cluster: prod-gcp
       resource: .nais/naiserator-prod.yaml
