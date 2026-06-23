@@ -19,7 +19,7 @@
 		"react-router-dom": "7.17.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.16",
+		"@biomejs/biome": "2.5.0",
 		"@navikt/aksel-icons": "8.12.1",
 		"@navikt/aksel-stylelint": "8.12.1",
 		"@navikt/ds-css": "8.12.1",
