@@ -16,7 +16,7 @@
 		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs"
 	},
 	"dependencies": {
-		"react-router-dom": "7.17.0"
+		"react-router-dom": "7.18.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.0",
@@ -33,7 +33,7 @@
 		"date-fns": "4.4.0",
 		"husky": "9.1.7",
 		"jsdom": "29.1.1",
-		"lint-staged": "17.0.7",
+		"lint-staged": "17.0.8",
 		"msw": "2.14.6",
 		"react": "19.2.7",
 		"react-dom": "19.2.7",
