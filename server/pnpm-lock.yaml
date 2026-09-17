@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@navikt/oasis':
-        specifier: 4.1.4
-        version: 4.1.4
+        specifier: 4.2.2
+        version: 4.2.2
       express:
         specifier: 5.2.1
         version: 5.2.1
       express-static-gzip:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       pino:
         specifier: 10.3.1
         version: 10.3.1
@@ -25,8 +25,8 @@ importers:
         specifier: 5.0.6
         version: 5.0.6
       '@types/node':
-        specifier: 26.4.0
-        version: 26.4.0
+        specifier: 26.5.0
+        version: 26.5.0
       tsx:
         specifier: 4.23.13
         version: 4.23.13
@@ -192,12 +192,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@navikt/oasis@4.1.4':
-    resolution: {integrity: sha512-v+LW8V5CTiHkfIXhceQ8RXRtrBktCK8wSFYmiR6hmzl9CJRYRLUpFC7YbLiC7jwHIuLHKUyl+Zawf8zQm6fDeQ==, tarball: https://npm.pkg.github.com/download/@navikt/oasis/4.1.4/0d9c93820b9b6d93b1bd9da134feb95461ad8a47}
+  '@navikt/oasis@4.2.2':
+    resolution: {integrity: sha512-EVMsF8uKbLPNRWuPfH1IKVJhqtibFzSTSyNkzj5mTCVMZV2QPS5W3uYMD4r0rXsmLx7nv0HnLovDphb3AFEjvw==, tarball: https://npm.pkg.github.com/download/@navikt/oasis/4.2.2/3c43e1e89bb2d46646a9a2aaf27972a024377a6f}
     engines: {node: ^20.19.0 || >= 22.12.0 || 24.x || 25.x}
 
-  '@navikt/texas@4.1.4':
-    resolution: {integrity: sha512-WS+agfWCqHyCtIpn/iQHNBRwn1gzCQDe0NY9Tz5ErrBsWHNxtqIV7W2eAmRUa3DLrZGHczoQhup+PYT6UX/SpQ==, tarball: https://npm.pkg.github.com/download/@navikt/texas/4.1.4/1725aca0fa0b803e0048212c3e202d24c10f3c3b}
+  '@navikt/texas@4.2.2':
+    resolution: {integrity: sha512-w/iTWLSdmvn2j2U3M+sJX9bSBvoV5UcMk+FuKs9EKz1QuaCoUksZrEfqX9/FtqyTUaOhwDnm/1iIuR6BudzFAg==, tarball: https://npm.pkg.github.com/download/@navikt/texas/4.2.2/862d743a1df21630a007a0d2d2a36a74dd8b5187}
     engines: {node: ^20.19.0 || >= 22.12.0 || 24.x || 25.x}
 
   '@opentelemetry/api@1.9.1':
@@ -206,6 +206,10 @@ packages:
 
   '@pinojs/redact@0.4.0':
     resolution: {integrity: sha512-k2ENnmBugE/rzQfEcdWHcCY+/FM3VLzH9cYEsbdsoqrvzAKRhUZeRNhAZvB8OitQJ1TBed3yqWtdjzS6wJKBwg==}
+
+  '@prometheus-io/client@0.16.1':
+    resolution: {integrity: sha512-XkFPsGFGoSs/UMg/vh0QLDpanl/tsrOV5PLHdpGe8Ho+ir/Llhytr15j6y8ZwLrpIGzK9gTVVpIalA6C4UjUZw==}
+    engines: {node: ^22 || ^24 || >=26}
 
   '@types/body-parser@1.19.6':
     resolution: {integrity: sha512-HLFeCYgz89uk22N5Qg3dvGvsv46B8GLvKKo1zKG4NybA8U2DiEO3w9lqGg29t/tfLRJpJ6iQxnVw4OnB7MoM9g==}
@@ -222,8 +226,8 @@ packages:
   '@types/http-errors@2.0.5':
     resolution: {integrity: sha512-r8Tayk8HJnX0FztbZN7oVqGccWgw98T/0neJphO91KkmOzug1KkofZURD4UaD5uH8AqcFLfdPErnBod0u71/qg==}
 
-  '@types/node@26.4.0':
-    resolution: {integrity: sha512-faiGnoIrLH/V8cibOMEAZ8pMw6oXqSukl29ra4mN8GdaB2ZewzeaLj+INpV5N+Z1eKWzY+IzaIZH2EIR6YZRNQ==}
+  '@types/node@26.5.0':
+    resolution: {integrity: sha512-dVSGpriSoCgz8WnDNTuSSuSv1PC/ALXihO4ulRZt7Md8k9mlbdin3lGOcDE8SnWOgf513ByWlXd7BK4azmyg/A==}
 
   '@types/qs@6.15.1':
     resolution: {integrity: sha512-GZHUBZR9hckSUhrxmp1nG6NwdpM9fCunJwyThLW1X3AyHgd9IlHb6VANpQQqDr2o/qQp6McZ3y/IA2rVzKzSbw==}
@@ -452,8 +456,8 @@ packages:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
 
-  express-static-gzip@3.0.1:
-    resolution: {integrity: sha512-LMeU/3YjFlFUa4vrPX+RoMMRW5mIpF4Iysgs6gX7A59WCY4BzyF3O28mBr4eMlWuW4DU9wVAVuVcfx29ln1N6g==}
+  express-static-gzip@3.0.2:
+    resolution: {integrity: sha512-BCKm+rzHrIaSa0CoDs6kZqyd7zfyDPrZdY7bhTgE8YAXUp+BSrvIm1XiFGJOpSP7rApl0yyVZWn2gLZeyeAOog==}
 
   express@5.2.1:
     resolution: {integrity: sha512-hIS4idWWai69NezIdRt2xFVofaF4j+6INOpJlVOLDO8zXGpUVEVzIYk12UUi2JzjEzWL3IOAxcTubgz9Po0yXw==}
@@ -517,8 +521,8 @@ packages:
   is-promise@4.0.0:
     resolution: {integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==}
 
-  jose@6.2.3:
-    resolution: {integrity: sha512-YYVDInQKFJfR/xa3ojUTl8c2KoTwiL1R5Wg9YCydwH0x0B9grbzlg5HC7mMjCtUJjbQ/YnGEZIhI5tCgfTb4Hw==}
+  jose@6.2.12:
+    resolution: {integrity: sha512-9NiFmJEex0sy2Dk58j2UGBSHgUs2ypF9eZSu4L6vjOX3Dp96Sw1F3uL+H+D1sx02jZZdzUT0HgvCy59CuvXcWw==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -581,11 +585,6 @@ packages:
 
   process-warning@5.0.0:
     resolution: {integrity: sha512-a39t9ApHNx2L4+HBnQKqxxHNs1r7KF+Intd8Q/g1bUh6q0WIp9voPXJ/x0j+ZL45KF1pJd9+q2jLIRMfvEshkA==}
-
-  prom-client@15.1.3:
-    resolution: {integrity: sha512-6ZiOBfCywsD4k1BN9IX0uZhF+tJkV8q8llP64G5Hajs4JOeVLPCwpPVcpXy3BwYiUGgyJzsJJQeOIv7+hDSq8g==}
-    engines: {node: ^16 || ^18 || >=20}
-    deprecated: prom-client has been replaced by @prometheus-io/client
 
   proxy-addr@2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -662,8 +661,8 @@ packages:
     resolution: {integrity: sha512-DvEy55V3DB7uknRo+4iOGT5fP1slR8wQohVdknigZPMpMstaKJQWhwiYBACJE3Ul2pTnATihhBYnRhZQHGBiRw==}
     engines: {node: '>= 0.8'}
 
-  tdigest@0.1.2:
-    resolution: {integrity: sha512-+G0LLgjjo9BZX2MfdvPfH+MKLCrxlXSYec5DaPYP1fe6Iyhf0/fSmJ0bFiZ1F8BT6cGXl2LpltQptzjXKWEkKA==}
+  tdigest@0.1.3:
+    resolution: {integrity: sha512-zbRt+lT+/H4fRItHshczHErVCQnitJk8MfMT24MqFJf3YL7SJJPqGIGeuOdvxXxM/AHFzKBl7WoyaYwqO9s3Kw==}
 
   thread-stream@4.2.0:
     resolution: {integrity: sha512-e2zZ96wSChazBsbENf/Pcm/4swHt2cEKQ92rhUjkL9GCKiTDJIaTBenjE/m9DXi0QBmTMDkFDdOomUy20A1tDQ==}
@@ -687,8 +686,8 @@ packages:
     engines: {node: '>=16.20.0'}
     hasBin: true
 
-  undici-types@8.3.0:
-    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
   unpipe@1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
@@ -781,31 +780,36 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@navikt/oasis@4.1.4':
+  '@navikt/oasis@4.2.2':
     dependencies:
-      '@navikt/texas': 4.1.4
+      '@navikt/texas': 4.2.2
       '@opentelemetry/api': 1.9.1
-      jose: 6.2.3
-      prom-client: 15.1.3
+      '@prometheus-io/client': 0.16.1
+      jose: 6.2.12
 
-  '@navikt/texas@4.1.4': {}
+  '@navikt/texas@4.2.2': {}
 
   '@opentelemetry/api@1.9.1': {}
 
   '@pinojs/redact@0.4.0': {}
 
+  '@prometheus-io/client@0.16.1':
+    dependencies:
+      '@opentelemetry/api': 1.9.1
+      tdigest: 0.1.3
+
   '@types/body-parser@1.19.6':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 26.4.0
+      '@types/node': 26.5.0
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 26.4.0
+      '@types/node': 26.5.0
 
   '@types/express-serve-static-core@5.1.1':
     dependencies:
-      '@types/node': 26.4.0
+      '@types/node': 26.5.0
       '@types/qs': 6.15.1
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
@@ -818,9 +822,9 @@ snapshots:
 
   '@types/http-errors@2.0.5': {}
 
-  '@types/node@26.4.0':
+  '@types/node@26.5.0':
     dependencies:
-      undici-types: 8.3.0
+      undici-types: 8.9.0
 
   '@types/qs@6.15.1': {}
 
@@ -828,12 +832,12 @@ snapshots:
 
   '@types/send@1.2.1':
     dependencies:
-      '@types/node': 26.4.0
+      '@types/node': 26.5.0
 
   '@types/serve-static@2.2.0':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 26.4.0
+      '@types/node': 26.5.0
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     optional: true
@@ -997,7 +1001,7 @@ snapshots:
 
   etag@1.8.1: {}
 
-  express-static-gzip@3.0.1:
+  express-static-gzip@3.0.2:
     dependencies:
       mime-types: 3.0.2
       parseurl: 1.3.3
@@ -1102,7 +1106,7 @@ snapshots:
 
   is-promise@4.0.0: {}
 
-  jose@6.2.3: {}
+  jose@6.2.12: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -1157,11 +1161,6 @@ snapshots:
       thread-stream: 4.2.0
 
   process-warning@5.0.0: {}
-
-  prom-client@15.1.3:
-    dependencies:
-      '@opentelemetry/api': 1.9.1
-      tdigest: 0.1.2
 
   proxy-addr@2.0.7:
     dependencies:
@@ -1264,7 +1263,7 @@ snapshots:
 
   statuses@2.0.2: {}
 
-  tdigest@0.1.2:
+  tdigest@0.1.3:
     dependencies:
       bintrees: 1.0.2
 
@@ -1309,7 +1308,7 @@ snapshots:
       '@typescript/typescript-win32-arm64': 7.0.2
       '@typescript/typescript-win32-x64': 7.0.2
 
-  undici-types@8.3.0: {}
+  undici-types@8.9.0: {}
 
   unpipe@1.0.0: {}
 
