@@ -16,23 +16,23 @@
 		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs"
 	},
 	"dependencies": {
-		"react-router-dom": "7.18.3"
+		"react-router-dom": "7.18.4"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.13",
+		"@biomejs/biome": "2.5.14",
 		"@navikt/aksel-icons": "8.16.2",
 		"@navikt/aksel-stylelint": "8.16.2",
 		"@navikt/ds-css": "8.16.2",
 		"@navikt/ds-react": "8.16.2",
 		"@navikt/ds-tokens": "8.16.2",
 		"@navikt/nav-dekoratoren-moduler": "4.3.0",
-		"@types/node": "26.5.1",
+		"@types/node": "26.6.2",
 		"@types/react": "19.3.0",
 		"@types/react-dom": "19.3.0",
 		"@vitejs/plugin-react": "6.1.1",
 		"date-fns": "4.4.0",
 		"husky": "9.1.7",
-		"jsdom": "30.0.1",
+		"jsdom": "30.1.1",
 		"lint-staged": "17.5.1",
 		"msw": "2.15.0",
 		"react": "19.3.0",
