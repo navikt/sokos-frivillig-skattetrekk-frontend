@@ -24,11 +24,7 @@ startMsw().then(() => {
 		env: "localhost",
 		localUrl: import.meta.env.VITE_DECORATOR_URL,
 		params: {
-			teamName:
-				import.meta.env.MODE === "production"
-					? "sokos-frivillig-skattetrekk-frontend.okonomi"
-					: "sokos-frivillig-skattetrekk-frontend-q2.okonomi",
-			origin: "sokos-frivillig-skattetrekk-frontend",
+			teamName: "sokos-frivillig-skattetrekk",
 			chatbot: false,
 			breadcrumbs: [
 				{
