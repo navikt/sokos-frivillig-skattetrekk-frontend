@@ -10,3 +10,4 @@ ignoreScripts: true
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - undici@8.5.0
+  - '@navikt/nav-dekoratoren-moduler@4.5.0'

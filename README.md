@@ -37,6 +37,17 @@ Webapplikasjon på nav.no for å administrere frivillig skattetrekk på et utval
 
 [Dokumentasjon](/dokumentasjon/)
 
+### Dekoratøren
+
+Dekoratøren lastes klient-side med `injectDecoratorClientSide` fra
+`@navikt/nav-dekoratoren-moduler`. `VITE_DECORATOR_URL` bestemmer adressen i hvert
+miljø og sendes som `localUrl` via modulens støtte for egendefinerte adresser.
+`params.teamName` identifiserer appen som
+`sokos-frivillig-skattetrekk-frontend.okonomi` i produksjon og
+`sokos-frivillig-skattetrekk-frontend-q2.okonomi` i Q2/lokal utvikling.
+Modulen legger automatisk til versjons- og integrasjonsmetadata i CSR-kallet,
+og identifikasjonen er derfor ikke avhengig av nettleserens `Origin`-header.
+
 # 4. Deployment
 
 Distribusjon av tjenesten er gjort med bruk av Github Actions.
