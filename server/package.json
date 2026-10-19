@@ -14,11 +14,11 @@
 		"@navikt/oasis": "4.2.2",
 		"express": "5.2.1",
 		"express-static-gzip": "3.0.2",
-		"pino": "10.3.1"
+		"pino": "10.4.0"
 	},
 	"devDependencies": {
 		"@types/express": "5.0.6",
-    "@types/node": "26.6.3",
+    "@types/node": "26.6.4",
 		"tsx": "4.23.15",
     "typescript": "7.0.2"
 	},
