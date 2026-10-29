@@ -13,7 +13,8 @@
 		"stylelint:check": "stylelint '**/*.css'",
 		"stylelint:fix": "stylelint '**/*.css' --fix",
 		"prepare": "husky",
-		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs"
+		"pnpm:resolve": "node scripts/resolve-pnpm-version.mjs",
+		"prune:production": "rm -rf node_modules && pnpm install --prod --frozen-lockfile --ignore-scripts"
 	},
 	"dependencies": {
 		"react-router-dom": "7.18.4"

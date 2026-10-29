@@ -22,6 +22,7 @@ jobs:
     with:
       app-build-command: pnpm run build:development
       server-build-command: pnpm run build
+      server-prune-dev-deps: pnpm run prune:production
       image-suffix: dev
       image-tag: snapshot
 
