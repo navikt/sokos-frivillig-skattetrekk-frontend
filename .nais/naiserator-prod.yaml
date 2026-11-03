@@ -2,9 +2,9 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: sokos-frivillig-skattetrekk-frontend
-  namespace: skatt-og-trekk
+  namespace: okonomi
   labels:
-    team: skatt-og-trekk
+    team: okonomi
   annotations:
     nais.io/run-as-user: "101" # nginx
     nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
