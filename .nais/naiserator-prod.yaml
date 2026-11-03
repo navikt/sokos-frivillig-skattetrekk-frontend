@@ -55,8 +55,6 @@ spec:
     outbound:
       external:
         - host: sokos-frivillig-skattetrekk-backend.prod-fss-pub.nais.io
-          namespaces:
-            - okonomi
 
   env:
     - name: "VITE_DECORATOR_URL"
