@@ -57,8 +57,8 @@ spec:
         - application: wonderwalled-idporten
           namespace: aura
     outbound:
-      external:
-        - host: sokos-frivillig-skattetrekk-backend-q2.intern.dev.nav.no
+      rules:
+        - application: sokos-frivillig-skattetrekk-backend-q2
 
   env:
     - name: "VITE_DECORATOR_URL"
