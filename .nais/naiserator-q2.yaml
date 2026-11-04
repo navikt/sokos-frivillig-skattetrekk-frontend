@@ -65,7 +65,7 @@ spec:
       value: "https://dekoratoren.ekstern.dev.nav.no"
 
     - name: "SKATTETREKK_BACKEND_URL"
-      value: "https://sokos-frivillig-skattetrekk-backend-q2.intern.dev.nav.no"
+      value: "https://frivillig-skattetrekk-backend-q2.intern.dev.nav.no"
     - name: "SKATTETREKK_BACKEND_SCOPE"
       value: "api://dev-gcp.skatt-og-trekk.sokos-frivillig-skattetrekk-backend-q2/.default"
     - name: "SKATTETREKK_BACKEND_AUDIENCE"
