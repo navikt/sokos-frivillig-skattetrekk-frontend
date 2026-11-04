@@ -53,8 +53,8 @@ spec:
         - id: loki
   accessPolicy:
     outbound:
-      external:
-        - host: sokos-frivillig-skattetrekk-backend.intern.nav.no
+      rules:
+        - application: sokos-frivillig-skattetrekk-backend
 
   env:
     - name: "VITE_DECORATOR_URL"
