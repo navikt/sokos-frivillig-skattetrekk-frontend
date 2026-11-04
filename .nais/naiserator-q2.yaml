@@ -58,18 +58,18 @@ spec:
           namespace: aura
     outbound:
       external:
-        - host: sokos-frivillig-skattetrekk-backend-q2.dev-gcp-pub.nais.io
+        - host: sokos-frivillig-skattetrekk-backend-q2.intern.dev.nav.no
 
   env:
     - name: "VITE_DECORATOR_URL"
       value: "https://dekoratoren.ekstern.dev.nav.no"
 
     - name: "SKATTETREKK_BACKEND_URL"
-      value: "https://sokos-frivillig-skattetrekk-backend-q2.dev-gcp-pub.nais.io"
+      value: "https://sokos-frivillig-skattetrekk-backend-q2.intern.dev.nav.no"
     - name: "SKATTETREKK_BACKEND_SCOPE"
-      value: "api://dev-fss.okonomi.sokos-frivillig-skattetrekk-backend-q2/.default"
+      value: "api://dev-gcp.skatt-og-trekk.sokos-frivillig-skattetrekk-backend-q2/.default"
     - name: "SKATTETREKK_BACKEND_AUDIENCE"
-      value: "dev-fss:okonomi:sokos-frivillig-skattetrekk-backend-q2"
+      value: "dev-gcp:skatt-og-trekk:sokos-frivillig-skattetrekk-backend-q2"
 
     - name: "REPRESENTASJON_BANNER_URL"
       value: "https://representasjon-banner-frontend-borger-q2.intern.dev.nav.no"
