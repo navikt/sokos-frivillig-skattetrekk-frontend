@@ -43,8 +43,8 @@ Dekoratøren lastes klient-side med `injectDecoratorClientSide` fra
 `@navikt/nav-dekoratoren-moduler`. `VITE_DECORATOR_URL` bestemmer adressen i hvert
 miljø og sendes som `localUrl` via modulens støtte for egendefinerte adresser.
 `params.teamName` identifiserer appen som
-`sokos-frivillig-skattetrekk-frontend.okonomi` i produksjon og
-`sokos-frivillig-skattetrekk-frontend-q2.okonomi` i Q2/lokal utvikling.
+`sokos-frivillig-skattetrekk-frontend.skatt-og-trekk` i produksjon og
+`sokos-frivillig-skattetrekk-frontend-q2.skatt-og-trekk` i Q2/lokal utvikling.
 Modulen legger automatisk til versjons- og integrasjonsmetadata i CSR-kallet,
 og identifikasjonen er derfor ikke avhengig av nettleserens `Origin`-header.
 
@@ -53,7 +53,7 @@ og identifikasjonen er derfor ikke avhengig av nettleserens `Origin`-header.
 Distribusjon av tjenesten er gjort med bruk av Github Actions.
 [sokos-frivillig-skattetrekk-frontend CI / CD](https://github.com/navikt/sokos-frivillig-skattetrekk-frontend/actions)
 
-Push/merge til main branche vil teste, bygge og deploye til produksjonsmiljø og testmiljø.
+Push/merge til main branch vil teste, bygge og deploye til produksjonsmiljø og testmiljø.
 
 # 5. Autentisering
 
@@ -72,16 +72,16 @@ For dev-gcp:
 
 ```shell script
 kubectl config use-context dev-gcp
-kubectl get pods -n okonomi | grep sokos-frivillig-skattetrekk-frontend
-kubectl logs -f sokos-frivillig-skattetrekk-frontend-<POD-ID> --namespace okonomi -c sokos-frivillig-skattetrekk-frontend
+kubectl get pods -n skatt-og-trekk | grep sokos-frivillig-skattetrekk-frontend
+kubectl logs -f sokos-frivillig-skattetrekk-frontend-<POD-ID> --namespace skatt-og-trekk -c sokos-frivillig-skattetrekk-frontend
 ```
 
 For prod-gcp:
 
 ```shell script
 kubectl config use-context prod-gcp
-kubectl get pods -n okonomi | grep sokos-frivillig-skattetrekk-frontend
-kubectl logs -f sokos-frivillig-skattetrekk-frontend-<POD-ID> --namespace okonomi -c sokos-frivillig-skattetrekk-frontend
+kubectl get pods -n skatt-og-trekk | grep sokos-frivillig-skattetrekk-frontend
+kubectl logs -f sokos-frivillig-skattetrekk-frontend-<POD-ID> --namespace skatt-og-trekk -c sokos-frivillig-skattetrekk-frontend
 ```
 
 ### Alarmer
@@ -95,12 +95,12 @@ Alarmene overvåker metrics som:
 
 Varsler blir sendt til følgende Slack-kanaler:
 
-- Dev-miljø: [#team-mob-alerts-dev](https://nav-it.slack.com/archives/C042SF2FEQM)
-- Prod-miljø: [#team-mob-alerts-prod](https://nav-it.slack.com/archives/C042ESY71GX)
+- Dev-miljø: [#utbetaling-skatt-og-trekk-alarm-dev](https://nav-it.slack.com/archives/C0C047NGLDB)
+- Prod-miljø: [#utbetaling-skatt-og-trekk-alarm-prod](https://nav-it.slack.com/archives/C0C08KX79R8)
 
 ### Grafana
 
-- [appnavn](url)
+- [sokos-frivillig-skattetrekk-frontend](https://grafana.nav.cloud.nais.io/goto/sfh9tw?orgId=default)
 
 ---
 
